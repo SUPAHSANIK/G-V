@@ -12,7 +12,7 @@
         /* Apply Inter font globally and set up dark theme */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0d1117; /* Dark background */
+            background-color: #0d1117; /* Dark background (GitHub Dark) */
             color: #c9d1d9; /* Light text */
             scroll-behavior: smooth;
         }
@@ -49,7 +49,7 @@
             display: flex;
             overflow: hidden;
             width: 100%;
-            height: auto; /* Allow height to be determined by content */
+            height: auto;
             position: relative;
         }
 
@@ -84,7 +84,7 @@
             cursor: pointer;
             z-index: 10;
             opacity: 0.7;
-            transition: opacity 0.3s;
+            transition: opacity 0.3s, background 0.3s;
         }
 
         .carousel-control:hover {
@@ -96,12 +96,12 @@
         .next-btn { right: 1rem; }
 
         /* Mobile navigation override */
-        nav {
+        #mobile-nav {
             transform: translateX(100%);
             transition: transform 0.3s ease-out;
         }
 
-        nav.open {
+        #mobile-nav.open {
             transform: translateX(0);
         }
         
@@ -128,8 +128,15 @@
             box-shadow: 0 4px 60px rgba(0, 255, 255, 0.4);
             max-width: 90%;
             width: 400px;
-            text-align: center; /* This centers the image and text inside the modal */
+            text-align: center;
             position: relative;
+            margin-top: 10vh; /* Push down slightly for better view on mobile */
+            margin-bottom: 10vh;
+        }
+        @media (min-width: 640px) {
+             .modal-content {
+                margin: auto;
+            }
         }
 
         .modal-content img {
@@ -163,21 +170,20 @@
     <!-- Header and Navigation -->
     <header class="bg-[#161b22] shadow-xl sticky top-0 z-30 p-4 border-b border-indigo-500/20">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <!-- Updated Logo Link to index.html -->
-            <a href="index.html" class="text-2xl font-bold text-cyan-400 hover:text-cyan-300 transition duration-300">
+            <!-- Logo Link -->
+            <a href="#home" class="text-2xl font-bold text-cyan-400 hover:text-cyan-300 transition duration-300">
                 Group 5 | Innovation Hub
             </a>
             
-            <!-- Desktop Nav - Added mr-20 to pull it slightly away from the right edge, and increased spacing to space-x-8 -->
+            <!-- Desktop Nav -->
             <nav class="hidden md:flex space-x-8 mr-20">
-                <!-- Updated Home Link to index.html -->
-                <a href="index.html" class="text-gray-300 hover:text-cyan-400 font-medium transition duration-300">Home</a>
+                <a href="#home" class="text-gray-300 hover:text-cyan-400 font-medium transition duration-300">Home</a>
                 <a href="#team" class="text-gray-300 hover:text-cyan-400 font-medium transition duration-300">Our Team</a>
                 <a href="#portfolio" class="text-gray-300 hover:text-cyan-400 font-medium transition duration-300">Projects</a>
                 <a href="#contact" class="text-gray-300 hover:text-cyan-400 font-medium transition duration-300">Contact</a>
             </nav>
 
-            <!-- Mobile Menu Button - Removed the redundant md:hidden class here, as it's defined on the nav element for mobile -->
+            <!-- Mobile Menu Button -->
             <button class="menu-toggle md:hidden p-2 rounded-lg text-cyan-400 hover:bg-gray-700 focus:outline-none">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
@@ -188,11 +194,10 @@
         <!-- Mobile Nav Overlay -->
         <nav class="fixed inset-y-0 right-0 w-64 bg-[#161b22] p-6 shadow-2xl md:hidden flex flex-col space-y-4 z-40" id="mobile-nav">
             <button class="close-mobile-btn text-2xl font-bold self-end text-cyan-400">&times;</button>
-            <!-- Updated Home Link to index.html -->
-            <a href="index.html" class="text-gray-300 hover:text-cyan-400 text-lg font-medium py-2 border-b border-gray-700">Home</a>
-            <a href="#team" class="text-gray-300 hover:text-cyan-400 text-lg font-medium py-2 border-b border-gray-700">Our Team</a>
-            <a href="#portfolio" class="text-gray-300 hover:text-cyan-400 text-lg font-medium py-2 border-b border-gray-700">Projects</a>
-            <a href="#contact" class="text-gray-300 hover:text-cyan-400 text-lg font-medium py-2">Contact</a>
+            <a href="#home" class="mobile-nav-link text-gray-300 hover:text-cyan-400 text-lg font-medium py-2 border-b border-gray-700">Home</a>
+            <a href="#team" class="mobile-nav-link text-gray-300 hover:text-cyan-400 text-lg font-medium py-2 border-b border-gray-700">Our Team</a>
+            <a href="#portfolio" class="mobile-nav-link text-gray-300 hover:text-cyan-400 text-lg font-medium py-2 border-b border-gray-700">Projects</a>
+            <a href="#contact" class="mobile-nav-link text-gray-300 hover:text-cyan-400 text-lg font-medium py-2">Contact</a>
         </nav>
     </header>
 
@@ -210,12 +215,18 @@
     <section class="py-16 px-4" id="team">
         <h2 class="text-4xl font-extrabold text-center mb-12 text-cyan-400">MEET THE TEAM</h2>
         
-        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
 
             <!-- Team Member 1: Joanna Marie L. Perdido -->
-            <div class="team-card rounded-xl p-6 shadow-2xl" data-name="Joanna Marie L. Perdido" data-role="IT Manager" data-cv="cv/joanna.pdf">
+            <div class="team-card rounded-xl p-6 shadow-2xl" 
+                 data-name="Joanna Marie L. Perdido" 
+                 data-role="IT Manager" 
+                 data-cv="cv/joanna.pdf"
+                 data-img-src="./joanna.png"
+            >
                 <img src="./joanna.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/1d4a4b/ffffff?text=Joanna';" 
-                    alt="Joanna Marie L. Perdido" onclick="openModal(this)" 
+                    alt="Joanna Marie L. Perdido" 
+                    onclick="openModal(this)" 
                     class="w-32 h-32 mx-auto rounded-full mb-4 border-4 border-indigo-500/50">
                 <div class="card-info text-center">
                     <h2 class="text-xl font-semibold text-white">Joanna Marie L. Perdido</h2>
@@ -227,9 +238,15 @@
             </div>
 
             <!-- Team Member 2: Rea Mea A. Quijarro -->
-            <div class="team-card rounded-xl p-6 shadow-2xl" data-name="Rea Mea A. Quijarro" data-role="Web Developer" data-cv="cv/rea.pdf">
+            <div class="team-card rounded-xl p-6 shadow-2xl" 
+                 data-name="Rea Mea A. Quijarro" 
+                 data-role="Web Developer" 
+                 data-cv="cv/rea.pdf"
+                 data-img-src="./rea.png"
+            >
                 <img src="./rea.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/0a7e8c/ffffff?text=Rea+Mea';" 
-                    alt="Rea Mea A. Quijarro" onclick="openModal(this)" 
+                    alt="Rea Mea A. Quijarro" 
+                    onclick="openModal(this)" 
                     class="w-32 h-32 mx-auto rounded-full mb-4 border-4 border-indigo-500/50">
                 <div class="card-info text-center">
                     <h2 class="text-xl font-semibold text-white">Rea Mea A. Quijarro</h2>
@@ -241,9 +258,15 @@
             </div>
 
             <!-- Team Member 3: Jenny Rose S. Mina -->
-            <div class="team-card rounded-xl p-6 shadow-2xl" data-name="Jenny Rose S. Mina" data-role="UI/UX Designer" data-cv="cv/jenny.pdf">
+            <div class="team-card rounded-xl p-6 shadow-2xl" 
+                 data-name="Jenny Rose S. Mina" 
+                 data-role="UI/UX Designer" 
+                 data-cv="cv/mina.pdf"
+                 data-img-src="./Jenny.png"
+            >
                 <img src="./Jenny.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/1d4a4b/ffffff?text=Jenny';" 
-                    alt="Jenny Rose S. Mina" onclick="openModal(this)" 
+                    alt="Jenny Rose S. Mina" 
+                    onclick="openModal(this)" 
                     class="w-32 h-32 mx-auto rounded-full mb-4 border-4 border-indigo-500/50">
                 <div class="card-info text-center">
                     <h2 class="text-xl font-semibold text-white">Jenny Rose S. Mina</h2>
@@ -255,9 +278,15 @@
             </div>
 
             <!-- Team Member 4: John Mark P. Noleal -->
-            <div class="team-card rounded-xl p-6 shadow-2xl" data-name="John Mark P. Noleal" data-role="Technical Solutions Engineer" data-cv="cv/john_mark.pdf">
+            <div class="team-card rounded-xl p-6 shadow-2xl" 
+                 data-name="John Mark P. Noleal" 
+                 data-role="Technical Solutions Engineer" 
+                 data-cv="cv/jm.pdf"
+                 data-img-src="./jms.png"
+            >
                 <img src="./jms.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/0a7e8c/ffffff?text=John+Mark';" 
-                    alt="John Mark P. Noleal" onclick="openModal(this)" 
+                    alt="John Mark P. Noleal" 
+                    onclick="openModal(this)" 
                     class="w-32 h-32 mx-auto rounded-full mb-4 border-4 border-indigo-500/50">
                 <div class="card-info text-center">
                     <h2 class="text-xl font-semibold text-white">John Mark P. Noleal</h2>
@@ -269,9 +298,15 @@
             </div>
 
             <!-- Team Member 5: Nathaniel I. Medina -->
-            <div class="team-card rounded-xl p-6 shadow-2xl" data-name="Nathaniel I. Medina" data-role="Full-Stack Developer" data-cv="cv/nathaniel.pdf">
+            <div class="team-card rounded-xl p-6 shadow-2xl" 
+                 data-name="Nathaniel I. Medina" 
+                 data-role="Full-Stack Developer" 
+                 data-cv="cv/ken.pdf"
+                 data-img-src="./kens.png"
+            >
                 <img src="./kens.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/1d4a4b/ffffff?text=Nathaniel';" 
-                    alt="Nathaniel I. Medina" onclick="openModal(this)" 
+                    alt="Nathaniel I. Medina" 
+                    onclick="openModal(this)" 
                     class="w-32 h-32 mx-auto rounded-full mb-4 border-4 border-indigo-500/50">
                 <div class="card-info text-center">
                     <h2 class="text-xl font-semibold text-white">Nathaniel I. Medina</h2>
@@ -283,9 +318,15 @@
             </div>
 
             <!-- Team Member 6: John Dave M. Mones -->
-            <div class="team-card rounded-xl p-6 shadow-2xl" data-name="John Dave M. Mones" data-role="Security Analyst" data-cv="cv/john_dave.pdf">
+            <div class="team-card rounded-xl p-6 shadow-2xl" 
+                 data-name="John Dave M. Mones" 
+                 data-role="Security Analyst" 
+                 data-cv="cv/mones.pdf"
+                 data-img-src="./monezz.png"
+            >
                 <img src="./monezz.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/0a7e8c/ffffff?text=John+Dave';" 
-                    alt="John Dave M. Mones" onclick="openModal(this)" 
+                    alt="John Dave M. Mones" 
+                    onclick="openModal(this)" 
                     class="w-32 h-32 mx-auto rounded-full mb-4 border-4 border-indigo-500/50">
                 <div class="card-info text-center">
                     <h2 class="text-xl font-semibold text-white">John Dave M. Mones</h2>
@@ -297,9 +338,15 @@
             </div>
 
             <!-- Team Member 7: Joshua A. Mendoza -->
-            <div class="team-card rounded-xl p-6 shadow-2xl" data-name="Joshua A. Mendoza" data-role="Content Strategist" data-cv="cv/joshua.pdf">
+            <div class="team-card rounded-xl p-6 shadow-2xl" 
+                 data-name="Joshua A. Mendoza" 
+                 data-role="Content Strategist" 
+                 data-cv="cv/mendoza.pdf"
+                 data-img-src="./Joshua.png"
+            >
                 <img src="./Joshua.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/1d4a4b/ffffff?text=Joshua';" 
-                    alt="Joshua A. Mendoza" onclick="openModal(this)" 
+                    alt="Joshua A. Mendoza" 
+                    onclick="openModal(this)" 
                     class="w-32 h-32 mx-auto rounded-full mb-4 border-4 border-indigo-500/50">
                 <div class="card-info text-center">
                     <h2 class="text-xl font-semibold text-white">Joshua A. Mendoza</h2>
@@ -323,52 +370,72 @@
                 <div class="project-gallery" id="projectGallery">
                     
                     <!-- Project 1: Data Science Laboratory Setup -->
-                    <div class="carousel-item active" data-title="Data Science Laboratory Setup" data-description="An image depicting our collaborative data science laboratory, highlighting the environment where our most complex data projects are initiated and executed.">
+                    <div class="carousel-item" 
+                         data-title="Data Science Laboratory Setup" 
+                         data-description="An image depicting our collaborative data science laboratory, highlighting the environment where our most complex data projects are initiated and executed.">
                         <img src="./lab.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x450/1d4a4b/ffffff?text=Project+1+Lab+Setup'">
                     </div>
                     
                     <!-- Project 2: Machine Learning Model Training -->
-                    <div class="carousel-item" data-title="Machine Learning Model Training" data-description="Snapshot of a machine learning model training session, focusing on deep neural network architectures for predictive analytics.">
+                    <div class="carousel-item" 
+                         data-title="Machine Learning Model Training" 
+                         data-description="Snapshot of a machine learning model training session, focusing on deep neural network architectures for predictive analytics.">
                         <img src="./lab2.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x450/0a7e8c/ffffff?text=Project+2+ML+Training'">
                     </div>
                     
                     <!-- Project 3: Real-time Visualization Dashboard -->
-                    <div class="carousel-item" data-title="Real-time Visualization Dashboard" data-description="Design and implementation of a real-time data visualization dashboard using modern charting libraries to monitor system performance.">
+                    <div class="carousel-item" 
+                         data-title="Real-time Visualization Dashboard" 
+                         data-description="Design and implementation of a real-time data visualization dashboard using modern charting libraries to monitor system performance.">
                         <img src="./lab3.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x450/1d4a4b/ffffff?text=Project+3+Dashboard'">
                     </div>
                     
                     <!-- Project 4: Backend System Architecture Review -->
-                    <div class="carousel-item" data-title="Backend System Architecture Review" data-description="The team reviewing the scalable backend system architecture built on cloud services, ensuring robust and high-availability deployment.">
+                    <div class="carousel-item" 
+                         data-title="Backend System Architecture Review" 
+                         data-description="The team reviewing the scalable backend system architecture built on cloud services, ensuring robust and high-availability deployment.">
                         <img src="./lab4.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x450/0a7e8c/ffffff?text=Project+4+Architecture'">
                     </div>
                     
                     <!-- Project 5: Agile Planning Session -->
-                    <div class="carousel-item" data-title="Agile Planning Session" data-description="A photo capturing our weekly agile planning session, prioritizing user stories and setting sprint goals for the upcoming development cycle.">
+                    <div class="carousel-item" 
+                         data-title="Agile Planning Session" 
+                         data-description="A photo capturing our weekly agile planning session, prioritizing user stories and setting sprint goals for the upcoming development cycle.">
                         <img src="./lab5.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x450/1d4a4b/ffffff?text=Project+5+Agile+Planning'">
                     </div>
                     
                     <!-- Project 6: Web Development Mockup Review -->
-                    <div class="carousel-item" data-title="Web Development Mockup Review" data-description="Reviewing high-fidelity UI/UX mockups before handing them off for front-end development, ensuring design consistency and user flow.">
+                    <div class="carousel-item" 
+                         data-title="Web Development Mockup Review" 
+                         data-description="Reviewing high-fidelity UI/UX mockups before handing them off for front-end development, ensuring design consistency and user flow.">
                         <img src="./yeah.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x450/0a7e8c/ffffff?text=Project+6+Mockup+Review'">
                     </div>
                     
                     <!-- Project 7: Cybersecurity Penetration Testing -->
-                    <div class="carousel-item" data-title="Cybersecurity Penetration Testing" data-description="Conducting penetration testing exercises on our applications to identify vulnerabilities and strengthen the overall security posture.">
+                    <div class="carousel-item" 
+                         data-title="Cybersecurity Penetration Testing" 
+                         data-description="Conducting penetration testing exercises on our applications to identify vulnerabilities and strengthen the overall security posture.">
                         <img src="./yeahh.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x450/1d4a4b/ffffff?text=Project+7+Security+Testing'">
                     </div>
                     
                     <!-- Project 8: Database Optimization Strategy -->
-                    <div class="carousel-item" data-title="Database Optimization Strategy" data-description="Developing a database optimization strategy to improve query performance and reduce latency for high-traffic data retrieval operations.">
+                    <div class="carousel-item" 
+                         data-title="Database Optimization Strategy" 
+                         data-description="Developing a database optimization strategy to improve query performance and reduce latency for high-traffic data retrieval operations.">
                         <img src="./yeahhh.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x450/0a7e8c/ffffff?text=Project+8+DB+Optimization'">
                     </div>
                     
                     <!-- Project 9: Cloud Infrastructure Deployment -->
-                    <div class="carousel-item" data-title="Cloud Infrastructure Deployment" data-description="Successfully deploying a new microservices architecture onto a public cloud platform, managed entirely through Infrastructure as Code (IaC).">
+                    <div class="carousel-item" 
+                         data-title="Cloud Infrastructure Deployment" 
+                         data-description="Successfully deploying a new microservices architecture onto a public cloud platform, managed entirely through Infrastructure as Code (IaC).">
                         <img src="./yes.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x450/1d4a4b/ffffff?text=Project+9+Cloud+Deployment'">
                     </div>
                     
                     <!-- Project 10: Group Presentation of Final Project -->
-                    <div class="carousel-item" data-title="Group Presentation of Final Project" data-description="The moment of presenting our capstone project to the faculty and peers, showcasing months of research, development, and teamwork.">
+                    <div class="carousel-item" 
+                         data-title="Group Presentation of Final Project" 
+                         data-description="The moment of presenting our capstone project to the faculty and peers, showcasing months of research, development, and teamwork.">
                         <img src="./students.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x450/0a7e8c/ffffff?text=Project+10+Presentation'">
                     </div>
 
@@ -416,8 +483,8 @@
 
     <!-- Team Member Modal -->
     <div id="memberModal" class="modal-overlay">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
         <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
             <img id="modal-img" src="" alt="Team Member Photo">
             <h2 id="modal-name" class="text-2xl font-bold text-white mb-1"></h2>
             <h4 id="modal-role" class="text-lg text-cyan-400 mb-6"></h4>
@@ -432,35 +499,37 @@
         let currentProjectIndex = 0;
         let projectItems;
         const mobileNav = document.getElementById('mobile-nav');
+        const modal = document.getElementById("memberModal");
 
-        // Function to handle exponential backoff for fetch retries
-        async function fetchWithRetry(url, options = {}, retries = 3) {
-            for (let i = 0; i < retries; i++) {
-                try {
-                    const response = await fetch(url, options);
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response;
-                } catch (error) {
-                    if (i < retries - 1) {
-                        const delay = Math.pow(2, i) * 1000;
-                        await new Promise(resolve => setTimeout(resolve, delay));
-                    } else {
-                        console.error('Final fetch attempt failed:', error);
-                        throw error;
-                    }
+        // Function to handle smooth scrolling for anchor links
+        function handleLinkClick(e) {
+            const href = e.currentTarget.getAttribute('href');
+            if (href.startsWith('#')) {
+                const targetId = href.substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
                 }
+            }
+            // Close mobile menu if necessary
+            if (e.currentTarget.classList.contains('mobile-nav-link')) {
+                mobileNav.classList.remove('open');
+                document.body.style.overflow = '';
             }
         }
 
-        // Wait for the DOM to be fully loaded
         document.addEventListener('DOMContentLoaded', () => {
             const menuToggle = document.querySelector('.menu-toggle');
             const closeMobileBtn = document.querySelector('.close-mobile-btn');
 
             projectItems = document.querySelectorAll('.carousel-item');
 
+            // Apply smooth scroll logic to all relevant links
+            document.querySelectorAll('header a[href^="#"]').forEach(link => {
+                link.addEventListener('click', handleLinkClick);
+            });
+            
             // Mobile menu toggle logic
             if (menuToggle && mobileNav) {
                 menuToggle.addEventListener('click', () => {
@@ -470,40 +539,6 @@
                 closeMobileBtn.addEventListener('click', () => {
                     mobileNav.classList.remove('open');
                     document.body.style.overflow = '';
-                });
-                
-                // Close menu on link click (including the ones inside the fixed nav)
-                mobileNav.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', (e) => {
-                        // Handle smooth scrolling for anchor links if it's not index.html
-                        const href = link.getAttribute('href');
-                        if (href.startsWith('#')) {
-                             const targetId = href.substring(1);
-                             const targetElement = document.getElementById(targetId);
-                             if (targetElement) {
-                                 e.preventDefault();
-                                 targetElement.scrollIntoView({ behavior: 'smooth' });
-                             }
-                        }
-                        
-                        mobileNav.classList.remove('open'); // Close menu
-                        document.body.style.overflow = '';
-                    });
-                });
-                
-                // Also handle desktop navigation clicks for smooth scroll
-                document.querySelector('header nav:not(#mobile-nav)').querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', (e) => {
-                         const href = link.getAttribute('href');
-                         if (href.startsWith('#')) {
-                            const targetId = href.substring(1);
-                            const targetElement = document.getElementById(targetId);
-                            if (targetElement) {
-                                e.preventDefault();
-                                targetElement.scrollIntoView({ behavior: 'smooth' });
-                            }
-                         }
-                    });
                 });
             }
 
@@ -532,11 +567,15 @@
         function showProject(index) {
             if (!projectItems || projectItems.length === 0) return;
 
+            // Remove 'active' from all items
             projectItems.forEach(item => {
                 item.classList.remove('active');
             });
 
             const selectedItem = projectItems[index];
+            if (!selectedItem) return;
+
+            // Add 'active' to the selected item
             selectedItem.classList.add('active');
             
             // Update project title and description based on data attributes
@@ -552,7 +591,6 @@
 
         // Function to open the member detail modal
         function openModal(imgElement) {
-            const modal = document.getElementById("memberModal");
             const modalImg = document.getElementById("modal-img");
             const modalName = document.getElementById("modal-name");
             const modalRole = document.getElementById("modal-role");
@@ -562,29 +600,27 @@
 
             const nameText = teamCard.dataset.name;
             const roleText = teamCard.dataset.role;
-            const cvLink = teamCard.dataset.cv; // Get the CV link from data-cv
-
-            modal.style.display = "flex";
+            const cvLink = teamCard.dataset.cv; 
             
+            // Get the current displayed image source (which might be the fallback placeholder)
             modalImg.src = imgElement.src;
             modalName.innerText = nameText;
             modalRole.innerText = roleText;
-            modalCV.setAttribute('href', cvLink); // Set the download link
-            modalCV.setAttribute('download', ''); // Ensure it triggers a download
+            modalCV.setAttribute('href', cvLink); 
+            modalCV.setAttribute('download', `${nameText.replace(/\s/g, '_')}_CV.pdf`); // Dynamic download filename
             
+            modal.style.display = "flex";
             document.body.style.overflow = 'hidden';
         }
 
         // Function to close the member detail modal
         function closeModal() {
-            const modal = document.getElementById("memberModal");
             modal.style.display = "none";
             document.body.style.overflow = '';
         }
 
         // Close modal when clicking outside the content
         window.onclick = function(event) {
-            const modal = document.getElementById("memberModal");
             if (event.target === modal) {
                 closeModal();
             }
