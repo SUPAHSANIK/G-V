@@ -1,847 +1,1697 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio – Group 5</title>
-    
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
-        :root {
-            --primary: #1d4a4b;
-            --accent: #0a7e8c;
-            --bg-light: #f4f6f8;
-            --text-dark: #223038;
-            --text-muted: #6c7a80;
-            --link-hover: #173037;
-            --hologram-blue: #8ecae6;
-        }
+    <meta charset="UTF-8">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        body {
-            font-family: "Inter", sans-serif;
-            background: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-            scroll-behavior: smooth;
-        }
+    <title>Portfolio – Group 5</title>
 
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
+   
 
-        a {
-            text-decoration: none;
-            color: var(--accent);
-            transition: color 0.3s ease;
-        }
+    <style>
 
-        a:hover {
-            color: var(--primary);
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
-        header {
-            background: var(--primary);
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
 
-        .nav-container {
-            width: 90%;
-            max-width: 1200px;
-            margin: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-            color: white;
-            cursor: pointer;
-        }
+        :root {
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-        }
+            --primary: #1d4a4b;
 
-        nav a {
-            color: white;
-            font-weight: 500;
-            padding: 5px 0;
-            border-bottom: 2px solid transparent;
-            transition: border-bottom 0.3s ease, color 0.3s ease;
-        }
+            --accent: #0a7e8c;
 
-        nav a:hover,
-        nav a[aria-current="page"] {
-            color: var(--accent);
-            border-bottom: 2px solid var(--accent);
-        }
+            --bg-light: #f4f6f8;
 
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.8rem;
-            cursor: pointer;
-            padding: 5px;
-        }
+            --text-dark: #223038;
 
-        footer {
-            background: var(--primary);
-            color: white;
-            text-align: center;
-            padding: 25px 10px;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
-            margin-top: 50px;
-        }
+            --text-muted: #6c7a80;
 
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
-            display: none;  
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            cursor: pointer;
-            backdrop-filter: blur(5px);
-        }
+            --link-hover: #173037;
 
-        .modal-content {
-            background: var(--bg-light);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            max-width: 90vw;
-            max-height: 90vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            animation: fadeIn 0.3s ease-out;
-            cursor: default;
-        }
+            --hologram-blue: #8ecae6;
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
+        }
 
-        .modal-content img {
-            max-width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-            border: 5px solid var(--primary);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
 
-        .modal-content h2 {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
 
-        .modal-content h4 {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            font-weight: 500;
-        }
+        * {
 
-        .modal-content .cv-btn {
-            padding: 10px 30px;
-            background: var(--accent);
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: 1rem;
-            transition: background 0.3s;
-        }
+            margin: 0;
 
-        .modal-content .cv-btn:hover {
-            background: #086a76;
-        }
+            padding: 0;
 
-        .close-btn {
-            position: absolute;
-            top: 15px;
-            right: 30px;
-            font-size: 3rem;
-            color: white;
-            cursor: pointer;
-            opacity: 0.8;
-            transition: opacity 0.2s;
-        }
+            box-sizing: border-box;
 
-        .close-btn:hover {
-            opacity: 1;
-        }
-        
-        .team-section {
-            background: #173037; 
-            color: white;
-            padding: 100px 40px;
-            text-align: center;
-            font-family: "Inter", sans-serif;
-        }
+        }
 
-        .team-divider {
-            margin-bottom: 3%;
-            height: 2px;
-            background: rgba(255, 255, 255, 0.2);
-            width: 100%;
-            max-width: 1100px;
-            margin-left: auto;
-            margin-right: auto;
-        }
 
-        .team-section h3 {
-            font-size: 18px;
-            opacity: 0.7;
-            margin-bottom: 1px;
-            color: white;
-        }
 
-        .team-section h1 {
-            font-size: 52px;
-            margin: 0;
-            font-weight: 800;
-            color: var(--hologram-blue);
-        }
+        body {
 
-        .team-section p {
-            max-width: 900px;
-            margin: 25px auto 50px;
-            font-size: 20px;
-            line-height: 1.6;
-            opacity: 0.8;
-            color: white;
-        }
+            font-family: "Inter", sans-serif;
 
-        .team-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 60px 20px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+            background: var(--bg-light);
 
-        .team-card {
-            text-align: center;
-            width: 100%;
-            display: flex;
-            flex-direction: column; 
-            align-items: center;
-            position: relative;
-            padding-top: 0; 
-            min-height: 350px;
-        }
+            color: var(--text-dark);
 
-        .team-card img {
-            width: 180px; 
-            height: 180px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid rgba(142, 202, 230, 0.3);
-            box-shadow: 0 0 20px rgba(142, 202, 230, 0.3);
-            transition: transform 0.3s ease;
-            cursor: pointer; 
-            z-index: 5;
-            position: absolute;
-            top: 0;
-            mask-image: linear-gradient(to bottom, black 50%, transparent 95%);
-        }
+            line-height: 1.7;
 
-        .hologram-base {
-            position: relative;
-            width: 250px;
-            height: 80px;
-            margin-top: 150px;
-            z-index: 2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .hologram-base::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(ellipse at center, rgba(142, 202, 230, 0.4) 0%, rgba(23, 48, 55, 0) 70%);
-            border-radius: 50%;
-            transform: scaleY(0.4) perspective(500px) rotateX(70deg); 
-            box-shadow: 0 0 40px rgba(142, 202, 230, 0.8), 0 0 15px rgba(142, 202, 230, 0.5) inset;
-        }
+            -webkit-font-smoothing: antialiased;
 
-        .team-card:hover img {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 0 30px rgba(142, 202, 230, 0.8);
-        }
+            scroll-behavior: smooth;
 
-        .card-info {
-            background: rgba(0, 0, 0, 0.4);
-            padding: 10px 10px;
-            margin-top: -10px;
-            border-radius: 8px;
-            width: 90%;
-            max-width: 250px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            z-index: 10;
-            border: 1px solid rgba(142, 202, 230, 0.1);
-        }
+        }
 
-        .card-info h2 {
-            font-size: 1.1rem;
-            color: white;
-            margin-bottom: 2px;
-            font-weight: 600;
-        }
 
-        .card-info h4 {
-            margin: 0 0 10px;
-            font-size: 0.9rem;
-            opacity: 0.8;
-            color: #ddd;
-            font-weight: 400;
-        }
 
-        .cv-btn {
-            display: inline-block;
-            padding: 6px 15px;
-            background: var(--accent);
-            border: 1px solid var(--accent);
-            border-radius: 6px;
-            color: white;
-            font-size: 0.85rem;
-            text-decoration: none;
-            transition: background 0.3s ease;
-        }
+        img {
 
-        .cv-btn:hover {
-            background: #086a76;
-        }
+            max-width: 100%;
 
-        .project-section {
-            padding: 80px 5%;
-            text-align: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+            height: auto;
 
-        .project-section h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 40px;
-        }
+            display: block;
 
-        .project-carousel-container {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+        }
 
-        .project-gallery {
-            display: flex;
-            overflow: hidden;
-            position: relative;
-            height: 450px;
-            border-radius: 8px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-        }
 
-        .carousel-item {
-            min-width: 100%;
-            flex-shrink: 0;
-            transition: transform 0.5s ease-in-out;
-            display: none;
-        }
-        
-        .carousel-item.active {
-            display: block;
-        }
 
-        .project-gallery img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 8px;
-        }
+        a {
 
-        .carousel-control {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(29, 74, 75, 0.7);
-            color: white;
-            border: none;
-            padding: 15px 10px;
-            cursor: pointer;
-            z-index: 10;
-            font-size: 1.5rem;
-            border-radius: 6px;
-            transition: background 0.3s, opacity 0.3s;
-            opacity: 0.9;
-        }
-        
-        .carousel-control:hover {
-            background: var(--primary);
-            opacity: 1;
-        }
+            text-decoration: none;
 
-        .prev-btn {
-            left: 10px;
-        }
+            color: var(--accent);
 
-        .next-btn {
-            right: 10px;
-        }
+            transition: color 0.3s ease;
 
-        .project-info {
-            padding: 20px 10px;
-            text-align: left;
-        }
-        
-        .project-info h3 {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
+        }
 
-        .project-info p {
-            font-size: 1rem;
-            color: var(--text-dark);
-            line-height: 1.5;
-        }
 
-        .banner {
-            position: relative;
-            width: 100%;
-            height: 50vh;
-            min-height: 300px;
-            overflow: hidden;
-            margin-top: 80px;
-        }
 
-        .banner-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        a:hover {
 
-        .banner-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: 1;
-        }
+            color: var(--primary);
 
-        .banner-text {
-            position: absolute;
-            z-index: 2;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90%;
-            max-width: 800px;
-            text-align: center;
-            color: white;
-            font-size: 2rem;
-            font-weight: 700;
-            line-height: 1.3;
-        }
+        }
 
-        @media (max-width: 768px) {
-            .nav-container {
-                padding: 0 20px;
-            }
-            header {
-                padding: 10px 0;
-            }
 
-            .menu-toggle {
-                display: block;
-            }
 
-            nav {
-                position: absolute;
-                top: 60px;
-                right: 0;
-                width: 100%;
-                background: var(--primary);
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease-in-out;
-            }
+        header {
 
-            nav.open {
-                max-height: 300px;
-            }
+            background: var(--primary);
 
-            nav ul {
-                flex-direction: column;
-                padding: 20px;
-                gap: 15px;
-                text-align: center;
-            }
+            padding: 15px 0;
 
-            nav a {
-                display: block;
-                padding: 10px 0;
-                border-bottom: none;
-            }
+            position: sticky;
 
-            nav a:hover,
-            nav a[aria-current="page"] {
-                border-bottom: none;
-                color: var(--accent);
-            }
+            top: 0;
 
-            .team-section { padding: 50px 15px; }
-            .team-section h1 { font-size: 30px; }
-            .team-section p { font-size: 16px; margin-bottom: 30px; }
-            
-            .team-container { 
-                grid-template-columns: 1fr;
-                gap: 80px 0;
-            }
-            .team-card { 
-                width: 100%; 
-                max-width: 300px; 
-                margin: 0 auto;
-            }
-            
-            .hologram-base {
-                width: 200px;
-                margin-top: 100px;
-            }
-            
-            .team-card img { 
-                width: 150px; 
-                height: 150px; 
-                max-width: 150px; 
-            }
-            .card-info { margin-top: -30px; }
+            z-index: 1000;
 
-            .project-section { padding: 50px 15px; }
-            .project-gallery { height: 300px; }
-            .project-info h3 { font-size: 1.2rem; }
-            .project-info p { font-size: 0.9rem; }
-            
-            .banner { height: 35vh; }
-            .banner-text { font-size: 1.2rem; }
-            
-            .modal-content {
-                padding: 20px;
-                max-width: 95vw;
-            }
-            .modal-content img {
-                max-width: 180px;
-                height: 180px;
-            }
-            .close-btn {
-                top: 10px;
-                right: 15px;
-                font-size: 2rem;
-            }
-        }
-    </style>
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+        }
+
+
+
+        .nav-container {
+
+            width: 90%;
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+
+
+        .logo {
+
+            font-size: 1.5rem;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            color: white;
+
+            cursor: pointer;
+
+        }
+
+
+
+        nav ul {
+
+            list-style: none;
+
+            display: flex;
+
+            gap: 30px;
+
+        }
+
+
+
+        nav a {
+
+            color: white;
+
+            font-weight: 500;
+
+            padding: 5px 0;
+
+            border-bottom: 2px solid transparent;
+
+            transition: border-bottom 0.3s ease, color 0.3s ease;
+
+        }
+
+
+
+        nav a:hover,
+
+        nav a[aria-current="page"] {
+
+            color: var(--accent);
+
+            border-bottom: 2px solid var(--accent);
+
+        }
+
+
+
+        .menu-toggle {
+
+            display: none;
+
+            background: none;
+
+            border: none;
+
+            color: white;
+
+            font-size: 1.8rem;
+
+            cursor: pointer;
+
+            padding: 5px;
+
+        }
+
+
+
+        footer {
+
+            background: var(--primary);
+
+            color: white;
+
+            text-align: center;
+
+            padding: 25px 10px;
+
+            font-size: 0.95rem;
+
+            letter-spacing: 0.5px;
+
+            margin-top: 50px;
+
+        }
+
+
+
+        .modal-overlay {
+
+            position: fixed;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            background-color: rgba(0, 0, 0, 0.85);
+
+            display: none;  
+
+            justify-content: center;
+
+            align-items: center;
+
+            z-index: 2000;
+
+            cursor: pointer;
+
+            backdrop-filter: blur(5px);
+
+        }
+
+
+
+        .modal-content {
+
+            background: var(--bg-light);
+
+            padding: 30px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+            max-width: 90vw;
+
+            max-height: 90vh;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            text-align: center;
+
+            animation: fadeIn 0.3s ease-out;
+
+            cursor: default;
+
+        }
+
+
+
+        @keyframes fadeIn {
+
+            from { opacity: 0; transform: scale(0.95); }
+
+            to { opacity: 1; transform: scale(1); }
+
+        }
+
+
+
+        .modal-content img {
+
+            max-width: 250px;
+
+            height: 250px;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            margin-bottom: 20px;
+
+            border: 5px solid var(--primary);
+
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+
+        }
+
+
+
+        .modal-content h2 {
+
+            font-size: 2rem;
+
+            color: var(--primary);
+
+            margin-bottom: 5px;
+
+        }
+
+
+
+        .modal-content h4 {
+
+            font-size: 1.1rem;
+
+            color: var(--text-muted);
+
+            margin-bottom: 20px;
+
+            font-weight: 500;
+
+        }
+
+
+
+        .modal-content .cv-btn {
+
+            padding: 10px 30px;
+
+            background: var(--accent);
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 6px;
+
+            font-size: 1rem;
+
+            transition: background 0.3s;
+
+        }
+
+
+
+        .modal-content .cv-btn:hover {
+
+            background: #086a76;
+
+        }
+
+
+
+        .close-btn {
+
+            position: absolute;
+
+            top: 15px;
+
+            right: 30px;
+
+            font-size: 3rem;
+
+            color: white;
+
+            cursor: pointer;
+
+            opacity: 0.8;
+
+            transition: opacity 0.2s;
+
+        }
+
+
+
+        .close-btn:hover {
+
+            opacity: 1;
+
+        }
+
+       
+
+        .team-section {
+
+            background: #173037;
+
+            color: white;
+
+            padding: 100px 40px;
+
+            text-align: center;
+
+            font-family: "Inter", sans-serif;
+
+        }
+
+
+
+        .team-divider {
+
+            margin-bottom: 3%;
+
+            height: 2px;
+
+            background: rgba(255, 255, 255, 0.2);
+
+            width: 100%;
+
+            max-width: 1100px;
+
+            margin-left: auto;
+
+            margin-right: auto;
+
+        }
+
+
+
+        .team-section h3 {
+
+            font-size: 18px;
+
+            opacity: 0.7;
+
+            margin-bottom: 1px;
+
+            color: white;
+
+        }
+
+
+
+        .team-section h1 {
+
+            font-size: 52px;
+
+            margin: 0;
+
+            font-weight: 800;
+
+            color: var(--hologram-blue);
+
+        }
+
+
+
+        .team-section p {
+
+            max-width: 900px;
+
+            margin: 25px auto 50px;
+
+            font-size: 20px;
+
+            line-height: 1.6;
+
+            opacity: 0.8;
+
+            color: white;
+
+        }
+
+
+
+        .team-container {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+            gap: 60px 20px;
+
+            max-width: 1400px;
+
+            margin: 0 auto;
+
+        }
+
+
+
+        .team-card {
+
+            text-align: center;
+
+            width: 100%;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            position: relative;
+
+            padding-top: 0;
+
+            min-height: 350px;
+
+        }
+
+
+
+        .team-card img {
+
+            width: 180px;
+
+            height: 180px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border: 4px solid rgba(142, 202, 230, 0.3);
+
+            box-shadow: 0 0 20px rgba(142, 202, 230, 0.3);
+
+            transition: transform 0.3s ease;
+
+            cursor: pointer;
+
+            z-index: 5;
+
+            position: absolute;
+
+            top: 0;
+
+            mask-image: linear-gradient(to bottom, black 50%, transparent 95%);
+
+        }
+
+
+
+        .hologram-base {
+
+            position: relative;
+
+            width: 250px;
+
+            height: 80px;
+
+            margin-top: 150px;
+
+            z-index: 2;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+        }
+
+       
+
+        .hologram-base::before {
+
+            content: '';
+
+            position: absolute;
+
+            bottom: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            background: radial-gradient(ellipse at center, rgba(142, 202, 230, 0.4) 0%, rgba(23, 48, 55, 0) 70%);
+
+            border-radius: 50%;
+
+            transform: scaleY(0.4) perspective(500px) rotateX(70deg);
+
+            box-shadow: 0 0 40px rgba(142, 202, 230, 0.8), 0 0 15px rgba(142, 202, 230, 0.5) inset;
+
+        }
+
+
+
+        .team-card:hover img {
+
+            transform: translateY(-5px) scale(1.05);
+
+            box-shadow: 0 0 30px rgba(142, 202, 230, 0.8);
+
+        }
+
+
+
+        .card-info {
+
+            background: rgba(0, 0, 0, 0.4);
+
+            padding: 10px 10px;
+
+            margin-top: -10px;
+
+            border-radius: 8px;
+
+            width: 90%;
+
+            max-width: 250px;
+
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            z-index: 10;
+
+            border: 1px solid rgba(142, 202, 230, 0.1);
+
+        }
+
+
+
+        .card-info h2 {
+
+            font-size: 1.1rem;
+
+            color: white;
+
+            margin-bottom: 2px;
+
+            font-weight: 600;
+
+        }
+
+
+
+        .card-info h4 {
+
+            margin: 0 0 10px;
+
+            font-size: 0.9rem;
+
+            opacity: 0.8;
+
+            color: #ddd;
+
+            font-weight: 400;
+
+        }
+
+
+
+        .cv-btn {
+
+            display: inline-block;
+
+            padding: 6px 15px;
+
+            background: var(--accent);
+
+            border: 1px solid var(--accent);
+
+            border-radius: 6px;
+
+            color: white;
+
+            font-size: 0.85rem;
+
+            text-decoration: none;
+
+            transition: background 0.3s ease;
+
+        }
+
+
+
+        .cv-btn:hover {
+
+            background: #086a76;
+
+        }
+
+
+
+        .project-section {
+
+            padding: 80px 5%;
+
+            text-align: center;
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+        }
+
+
+
+        .project-section h2 {
+
+            font-size: 2.5rem;
+
+            font-weight: 800;
+
+            color: var(--primary);
+
+            margin-bottom: 40px;
+
+        }
+
+
+
+        .project-carousel-container {
+
+            position: relative;
+
+            max-width: 800px;
+
+            margin: 0 auto;
+
+        }
+
+
+
+        .project-gallery {
+
+            display: flex;
+
+            overflow: hidden;
+
+            position: relative;
+
+            height: 450px;
+
+            border-radius: 8px;
+
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+
+        }
+
+
+
+        .carousel-item {
+
+            min-width: 100%;
+
+            flex-shrink: 0;
+
+            transition: transform 0.5s ease-in-out;
+
+            display: none;
+
+        }
+
+       
+
+        .carousel-item.active {
+
+            display: block;
+
+        }
+
+
+
+        .project-gallery img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            border-radius: 8px;
+
+        }
+
+
+
+        .carousel-control {
+
+            position: absolute;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            background: rgba(29, 74, 75, 0.7);
+
+            color: white;
+
+            border: none;
+
+            padding: 15px 10px;
+
+            cursor: pointer;
+
+            z-index: 10;
+
+            font-size: 1.5rem;
+
+            border-radius: 6px;
+
+            transition: background 0.3s, opacity 0.3s;
+
+            opacity: 0.9;
+
+        }
+
+       
+
+        .carousel-control:hover {
+
+            background: var(--primary);
+
+            opacity: 1;
+
+        }
+
+
+
+        .prev-btn {
+
+            left: 10px;
+
+        }
+
+
+
+        .next-btn {
+
+            right: 10px;
+
+        }
+
+
+
+        .project-info {
+
+            padding: 20px 10px;
+
+            text-align: left;
+
+        }
+
+       
+
+        .project-info h3 {
+
+            font-size: 1.5rem;
+
+            color: var(--primary);
+
+            margin-bottom: 10px;
+
+        }
+
+
+
+        .project-info p {
+
+            font-size: 1rem;
+
+            color: var(--text-dark);
+
+            line-height: 1.5;
+
+        }
+
+
+
+        .banner {
+
+            position: relative;
+
+            width: 100%;
+
+            height: 50vh;
+
+            min-height: 300px;
+
+            overflow: hidden;
+
+            margin-top: 80px;
+
+        }
+
+
+
+        .banner-img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+        }
+
+
+
+        .banner-overlay {
+
+            position: absolute;
+
+            inset: 0;
+
+            background: rgba(0, 0, 0, 0.4);
+
+            z-index: 1;
+
+        }
+
+
+
+        .banner-text {
+
+            position: absolute;
+
+            z-index: 2;
+
+            top: 50%;
+
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+
+            width: 90%;
+
+            max-width: 800px;
+
+            text-align: center;
+
+            color: white;
+
+            font-size: 2rem;
+
+            font-weight: 700;
+
+            line-height: 1.3;
+
+        }
+
+
+
+        @media (max-width: 768px) {
+
+            .nav-container {
+
+                padding: 0 20px;
+
+            }
+
+            header {
+
+                padding: 10px 0;
+
+            }
+
+
+
+            .menu-toggle {
+
+                display: block;
+
+            }
+
+
+
+            nav {
+
+                position: absolute;
+
+                top: 60px;
+
+                right: 0;
+
+                width: 100%;
+
+                background: var(--primary);
+
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+
+                max-height: 0;
+
+                overflow: hidden;
+
+                transition: max-height 0.3s ease-in-out;
+
+            }
+
+
+
+            nav.open {
+
+                max-height: 300px;
+
+            }
+
+
+
+            nav ul {
+
+                flex-direction: column;
+
+                padding: 20px;
+
+                gap: 15px;
+
+                text-align: center;
+
+            }
+
+
+
+            nav a {
+
+                display: block;
+
+                padding: 10px 0;
+
+                border-bottom: none;
+
+            }
+
+
+
+            nav a:hover,
+
+            nav a[aria-current="page"] {
+
+                border-bottom: none;
+
+                color: var(--accent);
+
+            }
+
+
+
+            .team-section { padding: 50px 15px; }
+
+            .team-section h1 { font-size: 30px; }
+
+            .team-section p { font-size: 16px; margin-bottom: 30px; }
+
+           
+
+            .team-container {
+
+                grid-template-columns: 1fr;
+
+                gap: 80px 0;
+
+            }
+
+            .team-card {
+
+                width: 100%;
+
+                max-width: 300px;
+
+                margin: 0 auto;
+
+            }
+
+           
+
+            .hologram-base {
+
+                width: 200px;
+
+                margin-top: 100px;
+
+            }
+
+           
+
+            .team-card img {
+
+                width: 150px;
+
+                height: 150px;
+
+                max-width: 150px;
+
+            }
+
+            .card-info { margin-top: -30px; }
+
+
+
+            .project-section { padding: 50px 15px; }
+
+            .project-gallery { height: 300px; }
+
+            .project-info h3 { font-size: 1.2rem; }
+
+            .project-info p { font-size: 0.9rem; }
+
+           
+
+            .banner { height: 35vh; }
+
+            .banner-text { font-size: 1.2rem; }
+
+           
+
+            .modal-content {
+
+                padding: 20px;
+
+                max-width: 95vw;
+
+            }
+
+            .modal-content img {
+
+                max-width: 180px;
+
+                height: 180px;
+
+            }
+
+            .close-btn {
+
+                top: 10px;
+
+                right: 15px;
+
+                font-size: 2rem;
+
+            }
+
+        }
+
+    </style>
+
 </head>
+
 <body>
 
-<header>
-    <div class="nav-container">
-        <div class="logo">Group 5</div>
-        <button class="menu-toggle">☰</button>
 
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="portfolio.html" aria-current="page">Portfolio</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
+
+<header>
+
+    <div class="nav-container">
+
+        <div class="logo">Group 5</div>
+
+        <button class="menu-toggle">☰</button>
+
+
+
+        <nav>
+
+            <ul>
+
+                <li><a href="index.html">Home</a></li>
+
+                <li><a href="about.html">About</a></li>
+
+                <li><a href="portfolio.html" aria-current="page">Portfolio</a></li>
+
+                <li><a href="contact.html">Contact</a></li>
+
+            </ul>
+
+        </nav>
+
+    </div>
+
 </header>
 
+
+
 <section class="team-section">
-    <hr class="team-divider">
-    <h3>Showcasing Data Innovations</h3>
-    <h1>Meet the team</h1>
-    <p>
-        A team of aspiring professionals with a shared goal: 
-        to innovate, inspire, and revolutionize the way technology works in everyday life.
-    </p>
 
-    <div class="team-container">
-        <div class="team-card" data-name="Joanna Marie L. Perdido" data-role="IT Manager" data-cv="#">
-            <img src="./joanna.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/1d4a4b/ffffff?text=Joanna';" alt="Joanna Marie L. Perdido" onclick="openModal(this)">
-            <div class="hologram-base"></div>
-            <div class="card-info">
-                <h2>Joanna Marie L. Perdido</h2>
-                <h4>IT Manager</h4>
-                <a href="#" class="cv-btn">Download CV</a>
-            </div>
-        </div>
+    <hr class="team-divider">
 
-        <div class="team-card" data-name="Rea Mea A. Quijarro" data-role="Web Developer" data-cv="#">
-            <img src="./rea.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/0a7e8c/ffffff?text=Rea+Mea';" alt="Rea Mea A. Quijarro" onclick="openModal(this)">
-            <div class="hologram-base"></div>
-            <div class="card-info">
-                <h2>Rea Mea A. Quijarro</h2>
-                <h4>Web Developer</h4>
-                <a href="#" class="cv-btn">Download CV</a>
-            </div>
-        </div>
+    <h3>Showcasing Data Innovations</h3>
 
-        <div class="team-card" data-name="Jenny Rose S. Mina" data-role="UI/UX Designer" data-cv="#">
-            <img src="./jenny.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/1d4a4b/ffffff?text=Jenny';" alt="Jenny Rose S. Mina" onclick="openModal(this)">
-            <div class="hologram-base"></div>
-            <div class="card-info">
-                <h2>Jenny Rose S. Mina</h2>
-                <h4>UI/UX Designer</h4>
-                <a href="#" class="cv-btn">Download CV</a>
-            </div>
-        </div> 
+    <h1>Meet the team</h1>
 
-        <div class="team-card" data-name="John Mark P. Noleal" data-role="Technical Solutions Engineer" data-cv="#">
-            <img src="./jms.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/0a7e8c/ffffff?text=John+Mark';" alt="John Mark P. Noleal" onclick="openModal(this)">
-            <div class="hologram-base"></div>
-            <div class="card-info">
-                <h2>John Mark P. Noleal</h2>
-                <h4>Technical Solutions Engineer</h4>
-                <a href="#" class="cv-btn">Download CV</a>
-            </div>
-        </div>
+    <p>
 
-        <div class="team-card" data-name="Nathaniel I. Medina" data-role="Full-Stack Developer" data-cv="#">
-            <img src="./kens.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/1d4a4b/ffffff?text=Nathaniel';" alt="Nathaniel I. Medina" onclick="openModal(this)">
-            <div class="hologram-base"></div>
-            <div class="card-info">
-                <h2>Nathaniel I. Medina</h2>
-                <h4>Full-Stack Developer</h4>
-                <a href="#" class="cv-btn">Download CV</a>
-            </div>
-        </div>
+        A team of aspiring professionals with a shared goal:
 
-        <div class="team-card" data-name="John Dave M. Mones" data-role="Security Analyst" data-cv="#">
-            <img src="./monezz.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/0a7e8c/ffffff?text=John+Dave';" alt="John Dave M. Mones" onclick="openModal(this)">
-            <div class="hologram-base"></div>
-            <div class="card-info">
-                <h2>John Dave M. Mones</h2>
-                <h4>Security Analyst</h4>
-                <a href="#" class="cv-btn">Download CV</a>
-            </div>
-        </div>
+        to innovate, inspire, and revolutionize the way technology works in everyday life.
 
-        <div class="team-card" data-name="Joshua A. Mendoza" data-role="Content Strategist" data-cv="#">
-            <img src="./joshua.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/1d4a4b/ffffff?text=Joshua';" alt="Joshua A. Mendoza" onclick="openModal(this)">
-            <div class="hologram-base"></div>
-            <div class="card-info">
-                <h2>Joshua A. Mendoza</h2>
-                <h4>Content Strategist</h4>
-                <a href="#" class="cv-btn">Download CV</a>
-            </div>
-        </div>
-    </div>
+    </p>
+
+
+
+    <div class="team-container">
+
+        <div class="team-card" data-name="Joanna Marie L. Perdido" data-role="IT Manager" data-cv="#">
+
+            <img src="./joanna.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/1d4a4b/ffffff?text=Joanna';" alt="Joanna Marie L. Perdido" onclick="openModal(this)">
+
+            <div class="hologram-base"></div>
+
+            <div class="card-info">
+
+                <h2>Joanna Marie L. Perdido</h2>
+
+                <h4>IT Manager</h4>
+
+                <a href="#" class="cv-btn">Download CV</a>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="team-card" data-name="Rea Mea A. Quijarro" data-role="Web Developer" data-cv="#">
+
+            <img src="./rea.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/0a7e8c/ffffff?text=Rea+Mea';" alt="Rea Mea A. Quijarro" onclick="openModal(this)">
+
+            <div class="hologram-base"></div>
+
+            <div class="card-info">
+
+                <h2>Rea Mea A. Quijarro</h2>
+
+                <h4>Web Developer</h4>
+
+                <a href="#" class="cv-btn">Download CV</a>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="team-card" data-name="Jenny Rose S. Mina" data-role="UI/UX Designer" data-cv="#">
+
+            <img src="./jenny.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/1d4a4b/ffffff?text=Jenny';" alt="Jenny Rose S. Mina" onclick="openModal(this)">
+
+            <div class="hologram-base"></div>
+
+            <div class="card-info">
+
+                <h2>Jenny Rose S. Mina</h2>
+
+                <h4>UI/UX Designer</h4>
+
+                <a href="#" class="cv-btn">Download CV</a>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="team-card" data-name="John Mark P. Noleal" data-role="Technical Solutions Engineer" data-cv="#">
+
+            <img src="./jms.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/0a7e8c/ffffff?text=John+Mark';" alt="John Mark P. Noleal" onclick="openModal(this)">
+
+            <div class="hologram-base"></div>
+
+            <div class="card-info">
+
+                <h2>John Mark P. Noleal</h2>
+
+                <h4>Technical Solutions Engineer</h4>
+
+                <a href="#" class="cv-btn">Download CV</a>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="team-card" data-name="Nathaniel I. Medina" data-role="Full-Stack Developer" data-cv="#">
+
+            <img src="./kens.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/1d4a4b/ffffff?text=Nathaniel';" alt="Nathaniel I. Medina" onclick="openModal(this)">
+
+            <div class="hologram-base"></div>
+
+            <div class="card-info">
+
+                <h2>Nathaniel I. Medina</h2>
+
+                <h4>Full-Stack Developer</h4>
+
+                <a href="#" class="cv-btn">Download CV</a>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="team-card" data-name="John Dave M. Mones" data-role="Security Analyst" data-cv="#">
+
+            <img src="./monezz.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/0a7e8c/ffffff?text=John+Dave';" alt="John Dave M. Mones" onclick="openModal(this)">
+
+            <div class="hologram-base"></div>
+
+            <div class="card-info">
+
+                <h2>John Dave M. Mones</h2>
+
+                <h4>Security Analyst</h4>
+
+                <a href="#" class="cv-btn">Download CV</a>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="team-card" data-name="Joshua A. Mendoza" data-role="Content Strategist" data-cv="#">
+
+            <img src="./joshua.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/1d4a4b/ffffff?text=Joshua';" alt="Joshua A. Mendoza" onclick="openModal(this)">
+
+            <div class="hologram-base"></div>
+
+            <div class="card-info">
+
+                <h2>Joshua A. Mendoza</h2>
+
+                <h4>Content Strategist</h4>
+
+                <a href="#" class="cv-btn">Download CV</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
+
+
 
 <section class="project-section">
-    <h2>BEHIND EVERY PROJECT</h2>
 
-    <div class="project-carousel-container">
-        <div class="project-gallery" id="projectGallery">
-            
-            <div class="carousel-item active" data-title="Project 1 Title" data-description="Description for project 1.">
-                <img src="https://placehold.co/800x450/1d4a4b/ffffff?text=Project+1" alt="Project 1">
-            </div>
-            
-            <div class="carousel-item" data-title="Project 2 Title" data-description="Description for project 2.">
-                <img src="https://placehold.co/800x450/0a7e8c/ffffff?text=Project+2" alt="Project 2">
-            </div>
-            
-            <div class="carousel-item" data-title="Project 3 Title" data-description="Description for project 3.">
-                <img src="https://placehold.co/800x450/223038/ffffff?text=Project+3" alt="Project 3">
-            </div>
-            
-            <div class="carousel-item" data-title="Project 4 Title" data-description="Description for project 4.">
-                <img src="https://placehold.co/800x450/6c7a80/ffffff?text=Project+4" alt="Project 4">
-            </div>
-            
-            <div class="carousel-item" data-title="Project 5 Title" data-description="Description for project 5.">
-                <img src="https://placehold.co/800x450/1d4a4b/ffffff?text=Project+5" alt="Project 5">
-            </div>
-            
-            <div class="carousel-item" data-title="Project 6 Title" data-description="Description for project 6.">
-                <img src="https://placehold.co/800x450/0a7e8c/ffffff?text=Project+6" alt="Project 6">
-            </div>
-            
-            <div class="carousel-item" data-title="Project 7 Title" data-description="Description for project 7.">
-                <img src="https://placehold.co/800x450/223038/ffffff?text=Project+7" alt="Project 7">
-            </div>
-            
-            <div class="carousel-item" data-title="Project 8 Title" data-description="Description for project 8.">
-                <img src="https://placehold.co/800x450/6c7a80/ffffff?text=Project+8" alt="Project 8">
-            </div>
-            
-            <div class="carousel-item" data-title="Project 9 Title" data-description="Description for project 9.">
-                <img src="https://placehold.co/800x450/1d4a4b/ffffff?text=Project+9" alt="Project 9">
-            </div>
-            
-            <div class="carousel-item" data-title="Project 10 Title" data-description="Description for project 10.">
-                <img src="https://placehold.co/800x450/0a7e8c/ffffff?text=Project+10" alt="Project 10">
-            </div>
-        </div>
-        
-        <button class="carousel-control prev-btn" onclick="moveCarousel(-1)">&#10094;</button>
-        <button class="carousel-control next-btn" onclick="moveCarousel(1)">&#10095;</button>
+    <h2>BEHIND EVERY PROJECT</h2>
 
-        <div class="project-info">
-            <h3 id="project-title">Project 1 Title</h3>
-            <p id="project-description">Description for project 1.</p>
-        </div>
-    </div>
+
+
+    <div class="project-carousel-container">
+
+        <div class="project-gallery" id="projectGallery">
+
+           
+
+            <div class="carousel-item active" data-title="Project 1 Title" data-description="Description for project 1.">
+
+                <img src="https://placehold.co/800x450/1d4a4b/ffffff?text=Project+1" alt="Project 1">
+
+            </div>
+
+           
+
+            <div class="carousel-item" data-title="Project 2 Title" data-description="Description for project 2.">
+
+                <img src="https://placehold.co/800x450/0a7e8c/ffffff?text=Project+2" alt="Project 2">
+
+            </div>
+
+           
+
+            <div class="carousel-item" data-title="Project 3 Title" data-description="Description for project 3.">
+
+                <img src="https://placehold.co/800x450/223038/ffffff?text=Project+3" alt="Project 3">
+
+            </div>
+
+           
+
+            <div class="carousel-item" data-title="Project 4 Title" data-description="Description for project 4.">
+
+                <img src="https://placehold.co/800x450/6c7a80/ffffff?text=Project+4" alt="Project 4">
+
+            </div>
+
+           
+
+            <div class="carousel-item" data-title="Project 5 Title" data-description="Description for project 5.">
+
+                <img src="https://placehold.co/800x450/1d4a4b/ffffff?text=Project+5" alt="Project 5">
+
+            </div>
+
+           
+
+            <div class="carousel-item" data-title="Project 6 Title" data-description="Description for project 6.">
+
+                <img src="https://placehold.co/800x450/0a7e8c/ffffff?text=Project+6" alt="Project 6">
+
+            </div>
+
+           
+
+            <div class="carousel-item" data-title="Project 7 Title" data-description="Description for project 7.">
+
+                <img src="https://placehold.co/800x450/223038/ffffff?text=Project+7" alt="Project 7">
+
+            </div>
+
+           
+
+            <div class="carousel-item" data-title="Project 8 Title" data-description="Description for project 8.">
+
+                <img src="https://placehold.co/800x450/6c7a80/ffffff?text=Project+8" alt="Project 8">
+
+            </div>
+
+           
+
+            <div class="carousel-item" data-title="Project 9 Title" data-description="Description for project 9.">
+
+                <img src="https://placehold.co/800x450/1d4a4b/ffffff?text=Project+9" alt="Project 9">
+
+            </div>
+
+           
+
+            <div class="carousel-item" data-title="Project 10 Title" data-description="Description for project 10.">
+
+                <img src="https://placehold.co/800x450/0a7e8c/ffffff?text=Project+10" alt="Project 10">
+
+            </div>
+
+        </div>
+
+       
+
+        <button class="carousel-control prev-btn" onclick="moveCarousel(-1)">&#10094;</button>
+
+        <button class="carousel-control next-btn" onclick="moveCarousel(1)">&#10095;</button>
+
+
+
+        <div class="project-info">
+
+            <h3 id="project-title">Project 1 Title</h3>
+
+            <p id="project-description">Description for project 1.</p>
+
+        </div>
+
+    </div>
+
 </section>
+
+
 
 <section class="banner">
-    <div class="banner-overlay"></div>
-    <img src="https://placehold.co/1200x400/1d4a4b/ffffff?text=IT+Banner" alt="Project Banner" class="banner-img">
-    <h2 class="banner-text">
-        Tech, Creativity, and Teamwork – Transforming Classroom Knowledge into Exciting Projects!
-    </h2>
+
+    <div class="banner-overlay"></div>
+
+    <img src="https://placehold.co/1200x400/1d4a4b/ffffff?text=IT+Banner" alt="Project Banner" class="banner-img">
+
+    <h2 class="banner-text">
+
+        Tech, Creativity, and Teamwork – Transforming Classroom Knowledge into Exciting Projects!
+
+    </h2>
+
 </section>
+
+
 
 <footer>© 2025 Group 5 — All Rights Reserved</footer>
 
+
+
 <div id="memberModal" class="modal-overlay">
-    <span class="close-btn" onclick="closeModal()">&times;</span>
-    <div class="modal-content">
-        <img id="modal-img" src="" alt="Team Member Photo">
-        <h2 id="modal-name"></h2>
-        <h4 id="modal-role"></h4>
-        <a id="modal-cv" href="#" class="cv-btn">Download CV</a>
-    </div>
+
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+
+    <div class="modal-content">
+
+        <img id="modal-img" src="" alt="Team Member Photo">
+
+        <h2 id="modal-name"></h2>
+
+        <h4 id="modal-role"></h4>
+
+        <a id="modal-cv" href="#" class="cv-btn">Download CV</a>
+
+    </div>
+
 </div>
 
+
+
 <script>
-    let currentProjectIndex = 0;
-    let projectItems;
-    let projectTitleElement;
-    let projectDescriptionElement;
 
-    document.addEventListener('DOMContentLoaded', () => {
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navUl = document.querySelector('nav'); 
+    let currentProjectIndex = 0;
 
-        if (menuToggle && navUl) {
-            menuToggle.addEventListener('click', () => {
-                navUl.classList.toggle('open');
-            });
-        }
-        
-        projectItems = document.querySelectorAll('.carousel-item');
-        projectTitleElement = document.getElementById('project-title');
-        projectDescriptionElement = document.getElementById('project-description');
-        
-        showProject(currentProjectIndex);
-    });
+    let projectItems;
 
-    function moveCarousel(direction) {
-        let newIndex = currentProjectIndex + direction;
-        const totalProjects = projectItems.length;
+    let projectTitleElement;
 
-        if (newIndex >= totalProjects) {
-            newIndex = 0;
-        } else if (newIndex < 0) {
-            newIndex = totalProjects - 1;
-        }
-        
-        currentProjectIndex = newIndex;
-        showProject(currentProjectIndex);
-    }
-    
-    function showProject(index) {
-        if (!projectItems || projectItems.length === 0) return;
+    let projectDescriptionElement;
 
-        projectItems.forEach(item => {
-            item.classList.remove('active');
-        });
 
-        const selectedItem = projectItems[index];
-        selectedItem.classList.add('active');
 
-        projectTitleElement.innerText = selectedItem.dataset.title || "Project Title";
-        projectDescriptionElement.innerText = selectedItem.dataset.description || "Project description goes here.";
-    }
+    document.addEventListener('DOMContentLoaded', () => {
 
-    function openModal(imgElement) {
-        const modal = document.getElementById("memberModal");
-        const modalImg = document.getElementById("modal-img");
-        const modalName = document.getElementById("modal-name");
-        const modalRole = document.getElementById("modal-role");
-        const modalCV = document.getElementById("modal-cv");
+        const menuToggle = document.querySelector('.menu-toggle');
 
-        const teamCard = imgElement.closest('.team-card');
+        const navUl = document.querySelector('nav');
 
-        const nameText = teamCard.dataset.name;
-        const roleText = teamCard.dataset.role;
-        const cvLink = teamCard.dataset.cv;
 
-        modal.style.display = "flex";
-        
-        modalImg.src = imgElement.src; 
-        modalName.innerText = nameText;
-        modalRole.innerText = roleText;
-        modalCV.setAttribute('href', cvLink);
 
-        document.body.style.overflow = 'hidden';
-    }
+        if (menuToggle && navUl) {
 
-    function closeModal() {
-        const modal = document.getElementById("memberModal");
-        modal.style.display = "none";
-        document.body.style.overflow = '';
-    }
+            menuToggle.addEventListener('click', () => {
 
-    window.onclick = function(event) {
-        const modal = document.getElementById("memberModal");
-        if (event.target === modal) {
-            closeModal();
-        }
-    }
+                navUl.classList.toggle('open');
+
+            });
+
+        }
+
+       
+
+        projectItems = document.querySelectorAll('.carousel-item');
+
+        projectTitleElement = document.getElementById('project-title');
+
+        projectDescriptionElement = document.getElementById('project-description');
+
+       
+
+        showProject(currentProjectIndex);
+
+    });
+
+
+
+    function moveCarousel(direction) {
+
+        let newIndex = currentProjectIndex + direction;
+
+        const totalProjects = projectItems.length;
+
+
+
+        if (newIndex >= totalProjects) {
+
+            newIndex = 0;
+
+        } else if (newIndex < 0) {
+
+            newIndex = totalProjects - 1;
+
+        }
+
+       
+
+        currentProjectIndex = newIndex;
+
+        showProject(currentProjectIndex);
+
+    }
+
+   
+
+    function showProject(index) {
+
+        if (!projectItems || projectItems.length === 0) return;
+
+
+
+        projectItems.forEach(item => {
+
+            item.classList.remove('active');
+
+        });
+
+
+
+        const selectedItem = projectItems[index];
+
+        selectedItem.classList.add('active');
+
+
+
+        projectTitleElement.innerText = selectedItem.dataset.title || "Project Title";
+
+        projectDescriptionElement.innerText = selectedItem.dataset.description || "Project description goes here.";
+
+    }
+
+
+
+    function openModal(imgElement) {
+
+        const modal = document.getElementById("memberModal");
+
+        const modalImg = document.getElementById("modal-img");
+
+        const modalName = document.getElementById("modal-name");
+
+        const modalRole = document.getElementById("modal-role");
+
+        const modalCV = document.getElementById("modal-cv");
+
+
+
+        const teamCard = imgElement.closest('.team-card');
+
+
+
+        const nameText = teamCard.dataset.name;
+
+        const roleText = teamCard.dataset.role;
+
+        const cvLink = teamCard.dataset.cv;
+
+
+
+        modal.style.display = "flex";
+
+       
+
+        modalImg.src = imgElement.src;
+
+        modalName.innerText = nameText;
+
+        modalRole.innerText = roleText;
+
+        modalCV.setAttribute('href', cvLink);
+
+
+
+        document.body.style.overflow = 'hidden';
+
+    }
+
+
+
+    function closeModal() {
+
+        const modal = document.getElementById("memberModal");
+
+        modal.style.display = "none";
+
+        document.body.style.overflow = '';
+
+    }
+
+
+
+    window.onclick = function(event) {
+
+        const modal = document.getElementById("memberModal");
+
+        if (event.target === modal) {
+
+            closeModal();
+
+        }
+
+    }
+
 </script>
 
+
+
 </body>
+
 </html>
+
+
+
+
