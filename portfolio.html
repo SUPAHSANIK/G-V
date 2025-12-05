@@ -128,7 +128,7 @@
             box-shadow: 0 4px 60px rgba(0, 255, 255, 0.4);
             max-width: 90%;
             width: 400px;
-            text-align: center;
+            text-align: center; /* This centers the image and text inside the modal */
             position: relative;
         }
 
@@ -163,19 +163,21 @@
     <!-- Header and Navigation -->
     <header class="bg-[#161b22] shadow-xl sticky top-0 z-30 p-4 border-b border-indigo-500/20">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-cyan-400 hover:text-cyan-300 transition duration-300">
+            <!-- Updated Logo Link to index.html -->
+            <a href="index.html" class="text-2xl font-bold text-cyan-400 hover:text-cyan-300 transition duration-300">
                 Group 5 | Innovation Hub
             </a>
             
-            <!-- Desktop Nav -->
-            <nav class="hidden md:flex space-x-6">
-                <a href="#home" class="text-gray-300 hover:text-cyan-400 font-medium transition duration-300">Home</a>
+            <!-- Desktop Nav - Added mr-20 to pull it slightly away from the right edge, and increased spacing to space-x-8 -->
+            <nav class="hidden md:flex space-x-8 mr-20">
+                <!-- Updated Home Link to index.html -->
+                <a href="index.html" class="text-gray-300 hover:text-cyan-400 font-medium transition duration-300">Home</a>
                 <a href="#team" class="text-gray-300 hover:text-cyan-400 font-medium transition duration-300">Our Team</a>
                 <a href="#portfolio" class="text-gray-300 hover:text-cyan-400 font-medium transition duration-300">Projects</a>
                 <a href="#contact" class="text-gray-300 hover:text-cyan-400 font-medium transition duration-300">Contact</a>
             </nav>
 
-            <!-- Mobile Menu Button -->
+            <!-- Mobile Menu Button - Removed the redundant md:hidden class here, as it's defined on the nav element for mobile -->
             <button class="menu-toggle md:hidden p-2 rounded-lg text-cyan-400 hover:bg-gray-700 focus:outline-none">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
@@ -186,7 +188,8 @@
         <!-- Mobile Nav Overlay -->
         <nav class="fixed inset-y-0 right-0 w-64 bg-[#161b22] p-6 shadow-2xl md:hidden flex flex-col space-y-4 z-40" id="mobile-nav">
             <button class="close-mobile-btn text-2xl font-bold self-end text-cyan-400">&times;</button>
-            <a href="#home" class="text-gray-300 hover:text-cyan-400 text-lg font-medium py-2 border-b border-gray-700">Home</a>
+            <!-- Updated Home Link to index.html -->
+            <a href="index.html" class="text-gray-300 hover:text-cyan-400 text-lg font-medium py-2 border-b border-gray-700">Home</a>
             <a href="#team" class="text-gray-300 hover:text-cyan-400 text-lg font-medium py-2 border-b border-gray-700">Our Team</a>
             <a href="#portfolio" class="text-gray-300 hover:text-cyan-400 text-lg font-medium py-2 border-b border-gray-700">Projects</a>
             <a href="#contact" class="text-gray-300 hover:text-cyan-400 text-lg font-medium py-2">Contact</a>
@@ -212,8 +215,8 @@
             <!-- Team Member 1: Joanna Marie L. Perdido -->
             <div class="team-card rounded-xl p-6 shadow-2xl" data-name="Joanna Marie L. Perdido" data-role="IT Manager" data-cv="cv/joanna.pdf">
                 <img src="./joanna.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/1d4a4b/ffffff?text=Joanna';" 
-                     alt="Joanna Marie L. Perdido" onclick="openModal(this)" 
-                     class="w-32 h-32 mx-auto rounded-full mb-4 border-4 border-indigo-500/50">
+                    alt="Joanna Marie L. Perdido" onclick="openModal(this)" 
+                    class="w-32 h-32 mx-auto rounded-full mb-4 border-4 border-indigo-500/50">
                 <div class="card-info text-center">
                     <h2 class="text-xl font-semibold text-white">Joanna Marie L. Perdido</h2>
                     <h4 class="text-sm text-cyan-400 mb-4">IT Manager</h4>
@@ -226,8 +229,8 @@
             <!-- Team Member 2: Rea Mea A. Quijarro -->
             <div class="team-card rounded-xl p-6 shadow-2xl" data-name="Rea Mea A. Quijarro" data-role="Web Developer" data-cv="cv/rea.pdf">
                 <img src="./rea.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/0a7e8c/ffffff?text=Rea+Mea';" 
-                     alt="Rea Mea A. Quijarro" onclick="openModal(this)" 
-                     class="w-32 h-32 mx-auto rounded-full mb-4 border-4 border-indigo-500/50">
+                    alt="Rea Mea A. Quijarro" onclick="openModal(this)" 
+                    class="w-32 h-32 mx-auto rounded-full mb-4 border-4 border-indigo-500/50">
                 <div class="card-info text-center">
                     <h2 class="text-xl font-semibold text-white">Rea Mea A. Quijarro</h2>
                     <h4 class="text-sm text-cyan-400 mb-4">Web Developer</h4>
@@ -240,8 +243,8 @@
             <!-- Team Member 3: Jenny Rose S. Mina -->
             <div class="team-card rounded-xl p-6 shadow-2xl" data-name="Jenny Rose S. Mina" data-role="UI/UX Designer" data-cv="cv/jenny.pdf">
                 <img src="./Jenny.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/1d4a4b/ffffff?text=Jenny';" 
-                     alt="Jenny Rose S. Mina" onclick="openModal(this)" 
-                     class="w-32 h-32 mx-auto rounded-full mb-4 border-4 border-indigo-500/50">
+                    alt="Jenny Rose S. Mina" onclick="openModal(this)" 
+                    class="w-32 h-32 mx-auto rounded-full mb-4 border-4 border-indigo-500/50">
                 <div class="card-info text-center">
                     <h2 class="text-xl font-semibold text-white">Jenny Rose S. Mina</h2>
                     <h4 class="text-sm text-cyan-400 mb-4">UI/UX Designer</h4>
@@ -254,8 +257,8 @@
             <!-- Team Member 4: John Mark P. Noleal -->
             <div class="team-card rounded-xl p-6 shadow-2xl" data-name="John Mark P. Noleal" data-role="Technical Solutions Engineer" data-cv="cv/john_mark.pdf">
                 <img src="./jms.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/0a7e8c/ffffff?text=John+Mark';" 
-                     alt="John Mark P. Noleal" onclick="openModal(this)" 
-                     class="w-32 h-32 mx-auto rounded-full mb-4 border-4 border-indigo-500/50">
+                    alt="John Mark P. Noleal" onclick="openModal(this)" 
+                    class="w-32 h-32 mx-auto rounded-full mb-4 border-4 border-indigo-500/50">
                 <div class="card-info text-center">
                     <h2 class="text-xl font-semibold text-white">John Mark P. Noleal</h2>
                     <h4 class="text-sm text-cyan-400 mb-4">Technical Solutions Engineer</h4>
@@ -268,8 +271,8 @@
             <!-- Team Member 5: Nathaniel I. Medina -->
             <div class="team-card rounded-xl p-6 shadow-2xl" data-name="Nathaniel I. Medina" data-role="Full-Stack Developer" data-cv="cv/nathaniel.pdf">
                 <img src="./kens.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/1d4a4b/ffffff?text=Nathaniel';" 
-                     alt="Nathaniel I. Medina" onclick="openModal(this)" 
-                     class="w-32 h-32 mx-auto rounded-full mb-4 border-4 border-indigo-500/50">
+                    alt="Nathaniel I. Medina" onclick="openModal(this)" 
+                    class="w-32 h-32 mx-auto rounded-full mb-4 border-4 border-indigo-500/50">
                 <div class="card-info text-center">
                     <h2 class="text-xl font-semibold text-white">Nathaniel I. Medina</h2>
                     <h4 class="text-sm text-cyan-400 mb-4">Full-Stack Developer</h4>
@@ -282,8 +285,8 @@
             <!-- Team Member 6: John Dave M. Mones -->
             <div class="team-card rounded-xl p-6 shadow-2xl" data-name="John Dave M. Mones" data-role="Security Analyst" data-cv="cv/john_dave.pdf">
                 <img src="./monezz.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/0a7e8c/ffffff?text=John+Dave';" 
-                     alt="John Dave M. Mones" onclick="openModal(this)" 
-                     class="w-32 h-32 mx-auto rounded-full mb-4 border-4 border-indigo-500/50">
+                    alt="John Dave M. Mones" onclick="openModal(this)" 
+                    class="w-32 h-32 mx-auto rounded-full mb-4 border-4 border-indigo-500/50">
                 <div class="card-info text-center">
                     <h2 class="text-xl font-semibold text-white">John Dave M. Mones</h2>
                     <h4 class="text-sm text-cyan-400 mb-4">Security Analyst</h4>
@@ -296,8 +299,8 @@
             <!-- Team Member 7: Joshua A. Mendoza -->
             <div class="team-card rounded-xl p-6 shadow-2xl" data-name="Joshua A. Mendoza" data-role="Content Strategist" data-cv="cv/joshua.pdf">
                 <img src="./Joshua.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/1d4a4b/ffffff?text=Joshua';" 
-                     alt="Joshua A. Mendoza" onclick="openModal(this)" 
-                     class="w-32 h-32 mx-auto rounded-full mb-4 border-4 border-indigo-500/50">
+                    alt="Joshua A. Mendoza" onclick="openModal(this)" 
+                    class="w-32 h-32 mx-auto rounded-full mb-4 border-4 border-indigo-500/50">
                 <div class="card-info text-center">
                     <h2 class="text-xl font-semibold text-white">Joshua A. Mendoza</h2>
                     <h4 class="text-sm text-cyan-400 mb-4">Content Strategist</h4>
@@ -472,12 +475,15 @@
                 // Close menu on link click (including the ones inside the fixed nav)
                 mobileNav.querySelectorAll('a').forEach(link => {
                     link.addEventListener('click', (e) => {
-                        // Handle smooth scrolling for anchor links
-                        const targetId = link.getAttribute('href').substring(1);
-                        const targetElement = document.getElementById(targetId);
-                        if (targetElement) {
-                            e.preventDefault();
-                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                        // Handle smooth scrolling for anchor links if it's not index.html
+                        const href = link.getAttribute('href');
+                        if (href.startsWith('#')) {
+                             const targetId = href.substring(1);
+                             const targetElement = document.getElementById(targetId);
+                             if (targetElement) {
+                                 e.preventDefault();
+                                 targetElement.scrollIntoView({ behavior: 'smooth' });
+                             }
                         }
                         
                         mobileNav.classList.remove('open'); // Close menu
@@ -488,12 +494,15 @@
                 // Also handle desktop navigation clicks for smooth scroll
                 document.querySelector('header nav:not(#mobile-nav)').querySelectorAll('a').forEach(link => {
                     link.addEventListener('click', (e) => {
-                         const targetId = link.getAttribute('href').substring(1);
-                        const targetElement = document.getElementById(targetId);
-                        if (targetElement) {
-                            e.preventDefault();
-                            targetElement.scrollIntoView({ behavior: 'smooth' });
-                        }
+                         const href = link.getAttribute('href');
+                         if (href.startsWith('#')) {
+                            const targetId = href.substring(1);
+                            const targetElement = document.getElementById(targetId);
+                            if (targetElement) {
+                                e.preventDefault();
+                                targetElement.scrollIntoView({ behavior: 'smooth' });
+                            }
+                         }
                     });
                 });
             }
@@ -584,4 +593,3 @@
 
 </body>
 </html>
-
