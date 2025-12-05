@@ -4,1157 +4,1173 @@
 
 <head>
 
-    <meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Portfolio – Group 5</title>
+    <title>Portfolio – Group 5</title>
 
-   
+   
 
-    <style>
+    <style>
 
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 
 
-        :root {
+        :root {
 
-            --primary: #1d4a4b;
+            --primary: #1d4a4b;
 
-            --accent: #0a7e8c;
+            --accent: #0a7e8c;
 
-            --bg-light: #f4f6f8;
+            --bg-light: #f4f6f8;
 
-            --text-dark: #223038;
+            --text-dark: #223038;
 
-            --text-muted: #6c7a80;
+            --text-muted: #6c7a80;
 
-            --link-hover: #173037;
+            --link-hover: #173037;
 
-            --hologram-blue: #8ecae6;
+            --hologram-blue: #8ecae6;
 
-        }
+        }
 
 
 
-        * {
+        * {
 
-            margin: 0;
+            margin: 0;
 
-            padding: 0;
+            padding: 0;
 
-            box-sizing: border-box;
+            box-sizing: border-box;
 
-        }
+        }
 
 
 
-        body {
+        body {
 
-            font-family: "Inter", sans-serif;
+            font-family: "Inter", sans-serif;
 
-            background: var(--bg-light);
+            background: var(--bg-light);
 
-            color: var(--text-dark);
+            color: var(--text-dark);
 
-            line-height: 1.7;
+            line-height: 1.7;
 
-            -webkit-font-smoothing: antialiased;
+            -webkit-font-smoothing: antialiased;
 
-            scroll-behavior: smooth;
+            scroll-behavior: smooth;
 
-        }
+        }
 
 
 
-        img {
+        img {
 
-            max-width: 100%;
+            max-width: 100%;
 
-            height: auto;
+            height: auto;
 
-            display: block;
+            display: block;
 
-        }
+        }
 
 
 
-        a {
+        a {
 
-            text-decoration: none;
+            text-decoration: none;
 
-            color: var(--accent);
+            color: var(--accent);
 
-            transition: color 0.3s ease;
+            transition: color 0.3s ease;
 
-        }
+        }
 
 
 
-        a:hover {
+        a:hover {
 
-            color: var(--primary);
+            color: var(--primary);
 
-        }
+        }
 
 
 
-        header {
+        header {
 
-            background: var(--primary);
+            background: var(--primary);
 
-            padding: 15px 0;
+            padding: 15px 0;
 
-            position: sticky;
+            position: sticky;
 
-            top: 0;
+            top: 0;
 
-            z-index: 1000;
+            z-index: 1000;
 
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 
-        }
+        }
 
 
 
-        .nav-container {
+        .nav-container {
 
-            width: 90%;
+            width: 90%;
 
-            max-width: 1200px;
+            max-width: 1200px;
 
-            margin: auto;
+            margin: auto;
 
-            display: flex;
+            display: flex;
 
-            justify-content: space-between;
+            justify-content: space-between;
 
-            align-items: center;
+            align-items: center;
 
-        }
+        }
 
 
 
-        .logo {
+        .logo {
 
-            font-size: 1.5rem;
+            font-size: 1.5rem;
 
-            font-weight: 800;
+            font-weight: 800;
 
-            letter-spacing: 1px;
+            letter-spacing: 1px;
 
-            color: white;
+            color: white;
 
-            cursor: pointer;
+            cursor: pointer;
 
-        }
+        }
 
 
 
-        nav ul {
+        nav ul {
 
-            list-style: none;
+            list-style: none;
 
-            display: flex;
+            display: flex;
 
-            gap: 30px;
+            gap: 30px;
 
-        }
+        }
 
 
 
-        nav a {
+        nav a {
 
-            color: white;
+            color: white;
 
-            font-weight: 500;
+            font-weight: 500;
 
-            padding: 5px 0;
+            padding: 5px 0;
 
-            border-bottom: 2px solid transparent;
+            border-bottom: 2px solid transparent;
 
-            transition: border-bottom 0.3s ease, color 0.3s ease;
+            transition: border-bottom 0.3s ease, color 0.3s ease;
 
-        }
+        }
 
 
 
-        nav a:hover,
+        nav a:hover,
 
-        nav a[aria-current="page"] {
+        nav a[aria-current="page"] {
 
-            color: var(--accent);
+            color: var(--accent);
 
-            border-bottom: 2px solid var(--accent);
+            border-bottom: 2px solid var(--accent);
 
-        }
+        }
 
 
 
-        .menu-toggle {
+        .menu-toggle {
 
-            display: none;
+            display: none;
 
-            background: none;
+            background: none;
 
-            border: none;
+            border: none;
 
-            color: white;
+            color: white;
 
-            font-size: 1.8rem;
+            font-size: 1.8rem;
 
-            cursor: pointer;
+            cursor: pointer;
 
-            padding: 5px;
+            padding: 5px;
 
-        }
+        }
 
 
 
-        footer {
+        footer {
 
-            background: var(--primary);
+            background: var(--primary);
 
-            color: white;
+            color: white;
 
-            text-align: center;
+            text-align: center;
 
-            padding: 25px 10px;
+            padding: 25px 10px;
 
-            font-size: 0.95rem;
+            font-size: 0.95rem;
 
-            letter-spacing: 0.5px;
+            letter-spacing: 0.5px;
 
-            margin-top: 50px;
+            margin-top: 50px;
 
-        }
+        }
 
 
 
-        .modal-overlay {
+        .modal-overlay {
 
-            position: fixed;
+            position: fixed;
 
-            top: 0;
+            top: 0;
 
-            left: 0;
+            left: 0;
 
-            width: 100%;
+            width: 100%;
 
-            height: 100%;
+            height: 100%;
 
-            background-color: rgba(0, 0, 0, 0.85);
+            background-color: rgba(0, 0, 0, 0.85);
 
-            display: none;  
+            display: none;  
 
-            justify-content: center;
+            justify-content: center;
 
-            align-items: center;
+            align-items: center;
 
-            z-index: 2000;
+            z-index: 2000;
 
-            cursor: pointer;
+            cursor: pointer;
 
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
 
-        }
+        }
 
 
 
-        .modal-content {
+        .modal-content {
 
-            background: var(--bg-light);
+            background: var(--bg-light);
 
-            padding: 30px;
+            padding: 30px;
 
-            border-radius: 12px;
+            border-radius: 12px;
 
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 
-            max-width: 90vw;
+            max-width: 90vw;
 
-            max-height: 90vh;
+            max-height: 90vh;
 
-            display: flex;
+            display: flex;
 
-            flex-direction: column;
+            flex-direction: column;
 
-            align-items: center;
+            align-items: center;
 
-            text-align: center;
+            text-align: center;
 
-            animation: fadeIn 0.3s ease-out;
+            animation: fadeIn 0.3s ease-out;
 
-            cursor: default;
+            cursor: default;
 
-        }
+            position: relative; /* Needed for close button position */
 
+        }
 
 
-        @keyframes fadeIn {
 
-            from { opacity: 0; transform: scale(0.95); }
+        @keyframes fadeIn {
 
-            to { opacity: 1; transform: scale(1); }
+            from { opacity: 0; transform: scale(0.95); }
 
-        }
+            to { opacity: 1; transform: scale(1); }
 
+        }
 
 
-        .modal-content img {
 
-            max-width: 250px;
+        .modal-content img {
 
-            height: 250px;
+            max-width: 250px;
 
-            border-radius: 50%;
+            height: 250px;
 
-            object-fit: cover;
+            border-radius: 50%;
 
-            margin-bottom: 20px;
+            object-fit: cover;
 
-            border: 5px solid var(--primary);
+            margin-bottom: 20px;
 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border: 5px solid var(--primary);
 
-        }
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 
+        }
 
 
-        .modal-content h2 {
 
-            font-size: 2rem;
+        .modal-content h2 {
 
-            color: var(--primary);
+            font-size: 2rem;
 
-            margin-bottom: 5px;
+            color: var(--primary);
 
-        }
+            margin-bottom: 5px;
 
+        }
 
 
-        .modal-content h4 {
 
-            font-size: 1.1rem;
+        .modal-content h4 {
 
-            color: var(--text-muted);
+            font-size: 1.1rem;
 
-            margin-bottom: 20px;
+            color: var(--text-muted);
 
-            font-weight: 500;
+            margin-bottom: 20px;
 
-        }
+            font-weight: 500;
 
+        }
 
 
-        .modal-content .cv-btn {
 
-            padding: 10px 30px;
+        .modal-content .cv-btn {
 
-            background: var(--accent);
+            padding: 10px 30px;
 
-            color: white;
+            background: var(--accent);
 
-            text-decoration: none;
+            color: white;
 
-            border-radius: 6px;
+            text-decoration: none;
 
-            font-size: 1rem;
+            border-radius: 6px;
 
-            transition: background 0.3s;
+            font-size: 1rem;
 
-        }
+            transition: background 0.3s;
 
+        }
 
 
-        .modal-content .cv-btn:hover {
 
-            background: #086a76;
+        .modal-content .cv-btn:hover {
 
-        }
+            background: #086a76;
 
+        }
 
 
-        .close-btn {
 
-            position: absolute;
+        .close-btn {
 
-            top: 15px;
+            position: absolute;
 
-            right: 30px;
+            top: 15px;
 
-            font-size: 3rem;
+            right: 30px;
 
-            color: white;
+            font-size: 3rem;
 
-            cursor: pointer;
+            color: white;
 
-            opacity: 0.8;
+            cursor: pointer;
 
-            transition: opacity 0.2s;
+            opacity: 0.8;
 
-        }
+            transition: opacity 0.2s;
 
+        }
 
 
-        .close-btn:hover {
 
-            opacity: 1;
+        .close-btn:hover {
 
-        }
+            opacity: 1;
 
-       
+        }
 
-        .team-section {
+       
 
-            background: #173037;
+        .team-section {
 
-            color: white;
+            background: #173037;
 
-            padding: 100px 40px;
+            color: white;
 
-            text-align: center;
+            padding: 100px 40px;
 
-            font-family: "Inter", sans-serif;
+            text-align: center;
 
-        }
+            font-family: "Inter", sans-serif;
 
+        }
 
 
-        .team-divider {
 
-            margin-bottom: 3%;
+        .team-divider {
 
-            height: 2px;
+            margin-bottom: 3%;
 
-            background: rgba(255, 255, 255, 0.2);
+            height: 2px;
 
-            width: 100%;
+            background: rgba(255, 255, 255, 0.2);
 
-            max-width: 1100px;
+            width: 100%;
 
-            margin-left: auto;
+            max-width: 1100px;
 
-            margin-right: auto;
+            margin-left: auto;
 
-        }
+            margin-right: auto;
 
+        }
 
 
-        .team-section h3 {
 
-            font-size: 18px;
+        .team-section h3 {
 
-            opacity: 0.7;
+            font-size: 18px;
 
-            margin-bottom: 1px;
+            opacity: 0.7;
 
-            color: white;
+            margin-bottom: 1px;
 
-        }
+            color: white;
 
+        }
 
 
-        .team-section h1 {
 
-            font-size: 52px;
+        .team-section h1 {
 
-            margin: 0;
+            font-size: 52px;
 
-            font-weight: 800;
+            margin: 0;
 
-            color: var(--hologram-blue);
+            font-weight: 800;
 
-        }
+            color: var(--hologram-blue);
 
+        }
 
 
-        .team-section p {
 
-            max-width: 900px;
+        .team-section p {
 
-            margin: 25px auto 50px;
+            max-width: 900px;
 
-            font-size: 20px;
+            margin: 25px auto 50px;
 
-            line-height: 1.6;
+            font-size: 20px;
 
-            opacity: 0.8;
+            line-height: 1.6;
 
-            color: white;
+            opacity: 0.8;
 
-        }
+            color: white;
 
+        }
 
 
-        .team-container {
 
-            display: grid;
+        .team-container {
 
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            display: grid;
 
-            gap: 60px 20px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 
-            max-width: 1400px;
+            gap: 60px 20px;
 
-            margin: 0 auto;
+            max-width: 1400px;
 
-        }
+            margin: 0 auto;
 
+        }
 
 
-        .team-card {
 
-            text-align: center;
+        .team-card {
 
-            width: 100%;
+            text-align: center;
 
-            display: flex;
+            width: 100%;
 
-            flex-direction: column;
+            display: flex;
 
-            align-items: center;
+            flex-direction: column;
 
-            position: relative;
+            align-items: center;
 
-            padding-top: 0;
+            position: relative;
 
-            min-height: 350px;
+            padding-top: 0;
 
-        }
+            min-height: 350px;
 
+        }
 
 
-        .team-card img {
 
-            width: 180px;
+        .team-card img {
 
-            height: 180px;
+            width: 180px;
 
-            object-fit: cover;
+            height: 180px;
 
-            border-radius: 50%;
+            object-fit: cover;
 
-            border: 4px solid rgba(142, 202, 230, 0.3);
+            border-radius: 50%;
 
-            box-shadow: 0 0 20px rgba(142, 202, 230, 0.3);
+            border: 4px solid rgba(142, 202, 230, 0.3);
 
-            transition: transform 0.3s ease;
+            box-shadow: 0 0 20px rgba(142, 202, 230, 0.3);
 
-            cursor: pointer;
+            transition: transform 0.3s ease;
 
-            z-index: 5;
+            cursor: pointer;
 
-            position: absolute;
+            z-index: 5;
 
-            top: 0;
+            position: absolute;
 
-            mask-image: linear-gradient(to bottom, black 50%, transparent 95%);
+            top: 0;
 
-        }
+            /* Using mask image to fade out the bottom of the image for the hologram effect */
 
+            mask-image: linear-gradient(to bottom, black 50%, transparent 95%);
 
+            -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 95%);
 
-        .hologram-base {
+        }
 
-            position: relative;
 
-            width: 250px;
 
-            height: 80px;
+        .hologram-base {
 
-            margin-top: 150px;
+            position: relative;
 
-            z-index: 2;
+            width: 250px;
 
-            display: flex;
+            height: 80px;
 
-            justify-content: center;
+            margin-top: 150px;
 
-            align-items: center;
+            z-index: 2;
 
-        }
+            display: flex;
 
-       
+            justify-content: center;
 
-        .hologram-base::before {
+            align-items: center;
 
-            content: '';
+        }
 
-            position: absolute;
+       
 
-            bottom: 0;
+        .hologram-base::before {
 
-            width: 100%;
+            content: '';
 
-            height: 100%;
+            position: absolute;
 
-            background: radial-gradient(ellipse at center, rgba(142, 202, 230, 0.4) 0%, rgba(23, 48, 55, 0) 70%);
+            bottom: 0;
 
-            border-radius: 50%;
+            width: 100%;
 
-            transform: scaleY(0.4) perspective(500px) rotateX(70deg);
+            height: 100%;
 
-            box-shadow: 0 0 40px rgba(142, 202, 230, 0.8), 0 0 15px rgba(142, 202, 230, 0.5) inset;
+            background: radial-gradient(ellipse at center, rgba(142, 202, 230, 0.4) 0%, rgba(23, 48, 55, 0) 70%);
 
-        }
+            border-radius: 50%;
 
+            transform: scaleY(0.4) perspective(500px) rotateX(70deg);
 
+            box-shadow: 0 0 40px rgba(142, 202, 230, 0.8), 0 0 15px rgba(142, 202, 230, 0.5) inset;
 
-        .team-card:hover img {
+        }
 
-            transform: translateY(-5px) scale(1.05);
 
-            box-shadow: 0 0 30px rgba(142, 202, 230, 0.8);
 
-        }
+        .team-card:hover img {
 
+            transform: translateY(-5px) scale(1.05);
 
+            box-shadow: 0 0 30px rgba(142, 202, 230, 0.8);
 
-        .card-info {
+        }
 
-            background: rgba(0, 0, 0, 0.4);
 
-            padding: 10px 10px;
 
-            margin-top: -10px;
+        .card-info {
 
-            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.4);
 
-            width: 90%;
+            padding: 10px 10px;
 
-            max-width: 250px;
+            margin-top: -10px;
 
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
 
-            display: flex;
+            width: 90%;
 
-            flex-direction: column;
+            max-width: 250px;
 
-            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 
-            z-index: 10;
+            display: flex;
 
-            border: 1px solid rgba(142, 202, 230, 0.1);
+            flex-direction: column;
 
-        }
+            align-items: center;
 
+            z-index: 10;
 
+            border: 1px solid rgba(142, 202, 230, 0.1);
 
-        .card-info h2 {
+        }
 
-            font-size: 1.1rem;
 
-            color: white;
 
-            margin-bottom: 2px;
+        .card-info h2 {
 
-            font-weight: 600;
+            font-size: 1.1rem;
 
-        }
+            color: white;
 
+            margin-bottom: 2px;
 
+            font-weight: 600;
 
-        .card-info h4 {
+        }
 
-            margin: 0 0 10px;
 
-            font-size: 0.9rem;
 
-            opacity: 0.8;
+        .card-info h4 {
 
-            color: #ddd;
+            margin: 0 0 10px;
 
-            font-weight: 400;
+            font-size: 0.9rem;
 
-        }
+            opacity: 0.8;
 
+            color: #ddd;
 
+            font-weight: 400;
 
-        .cv-btn {
+        }
 
-            display: inline-block;
 
-            padding: 6px 15px;
 
-            background: var(--accent);
+        .cv-btn {
 
-            border: 1px solid var(--accent);
+            display: inline-block;
 
-            border-radius: 6px;
+            padding: 6px 15px;
 
-            color: white;
+            background: var(--accent);
 
-            font-size: 0.85rem;
+            border: 1px solid var(--accent);
 
-            text-decoration: none;
+            border-radius: 6px;
 
-            transition: background 0.3s ease;
+            color: white;
 
-        }
+            font-size: 0.85rem;
 
+            text-decoration: none;
 
+            transition: background 0.3s ease;
 
-        .cv-btn:hover {
+        }
 
-            background: #086a76;
 
-        }
 
+        .cv-btn:hover {
 
+            background: #086a76;
 
-        .project-section {
+        }
 
-            padding: 80px 5%;
 
-            text-align: center;
 
-            max-width: 1200px;
+        .project-section {
 
-            margin: 0 auto;
+            padding: 80px 5%;
 
-        }
+            text-align: center;
 
+            max-width: 1200px;
 
+            margin: 0 auto;
 
-        .project-section h2 {
+        }
 
-            font-size: 2.5rem;
 
-            font-weight: 800;
 
-            color: var(--primary);
+        .project-section h2 {
 
-            margin-bottom: 40px;
+            font-size: 2.5rem;
 
-        }
+            font-weight: 800;
 
+            color: var(--primary);
 
+            margin-bottom: 40px;
 
-        .project-carousel-container {
+        }
 
-            position: relative;
 
-            max-width: 800px;
 
-            margin: 0 auto;
+        .project-carousel-container {
 
-        }
+            position: relative;
 
+            max-width: 800px;
 
+            margin: 0 auto;
 
-        .project-gallery {
+        }
 
-            display: flex;
 
-            overflow: hidden;
 
-            position: relative;
+        .project-gallery {
 
-            height: 450px;
+            display: flex;
 
-            border-radius: 8px;
+            overflow: hidden;
 
-            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            position: relative;
 
-        }
+            height: 450px;
 
+            border-radius: 8px;
 
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
 
-        .carousel-item {
+        }
 
-            min-width: 100%;
 
-            flex-shrink: 0;
 
-            transition: transform 0.5s ease-in-out;
+        .carousel-item {
 
-            display: none;
+            min-width: 100%;
 
-        }
+            flex-shrink: 0;
 
-       
+            transition: transform 0.5s ease-in-out;
 
-        .carousel-item.active {
+            display: none; /* Hide all by default, show only active via JS/class */
 
-            display: block;
+            position: absolute;
 
-        }
+            top: 0;
 
+            left: 0;
 
+            width: 100%;
 
-        .project-gallery img {
+            height: 100%;
 
-            width: 100%;
+        }
 
-            height: 100%;
+       
 
-            object-fit: cover;
+        .carousel-item.active {
 
-            border-radius: 8px;
+            display: block;
 
-        }
+        }
 
 
 
-        .carousel-control {
+        .project-gallery img {
 
-            position: absolute;
+            width: 100%;
 
-            top: 50%;
+            height: 100%;
 
-            transform: translateY(-50%);
+            object-fit: cover;
 
-            background: rgba(29, 74, 75, 0.7);
+            border-radius: 8px;
 
-            color: white;
+        }
 
-            border: none;
 
-            padding: 15px 10px;
 
-            cursor: pointer;
+        .carousel-control {
 
-            z-index: 10;
+            position: absolute;
 
-            font-size: 1.5rem;
+            top: 50%;
 
-            border-radius: 6px;
+            transform: translateY(-50%);
 
-            transition: background 0.3s, opacity 0.3s;
+            background: rgba(29, 74, 75, 0.7);
 
-            opacity: 0.9;
+            color: white;
 
-        }
+            border: none;
 
-       
+            padding: 15px 10px;
 
-        .carousel-control:hover {
+            cursor: pointer;
 
-            background: var(--primary);
+            z-index: 10;
 
-            opacity: 1;
+            font-size: 1.5rem;
 
-        }
+            border-radius: 6px;
 
+            transition: background 0.3s, opacity 0.3s;
 
+            opacity: 0.9;
 
-        .prev-btn {
+        }
 
-            left: 10px;
+       
 
-        }
+        .carousel-control:hover {
 
+            background: var(--primary);
 
+            opacity: 1;
 
-        .next-btn {
+        }
 
-            right: 10px;
 
-        }
 
+        .prev-btn {
 
+            left: 10px;
 
-        .project-info {
+        }
 
-            padding: 20px 10px;
 
-            text-align: left;
 
-        }
+        .next-btn {
 
-       
+            right: 10px;
 
-        .project-info h3 {
+        }
 
-            font-size: 1.5rem;
 
-            color: var(--primary);
 
-            margin-bottom: 10px;
+        .project-info {
 
-        }
+            padding: 20px 10px;
 
+            text-align: left;
 
+        }
 
-        .project-info p {
+       
 
-            font-size: 1rem;
+        .project-info h3 {
 
-            color: var(--text-dark);
+            font-size: 1.5rem;
 
-            line-height: 1.5;
+            color: var(--primary);
 
-        }
+            margin-bottom: 10px;
 
+        }
 
 
-        .banner {
 
-            position: relative;
+        .project-info p {
 
-            width: 100%;
+            font-size: 1rem;
 
-            height: 50vh;
+            color: var(--text-dark);
 
-            min-height: 300px;
+            line-height: 1.5;
 
-            overflow: hidden;
+        }
 
-            margin-top: 80px;
 
-        }
 
+        .banner {
 
+            position: relative;
 
-        .banner-img {
+            width: 100%;
 
-            width: 100%;
+            height: 50vh;
 
-            height: 100%;
+            min-height: 300px;
 
-            object-fit: cover;
+            overflow: hidden;
 
-        }
+            margin-top: 80px;
 
+        }
 
 
-        .banner-overlay {
 
-            position: absolute;
+        .banner-img {
 
-            inset: 0;
+            width: 100%;
 
-            background: rgba(0, 0, 0, 0.4);
+            height: 100%;
 
-            z-index: 1;
+            object-fit: cover;
 
-        }
+        }
 
 
 
-        .banner-text {
+        .banner-overlay {
 
-            position: absolute;
+            position: absolute;
 
-            z-index: 2;
+            inset: 0;
 
-            top: 50%;
+            background: rgba(0, 0, 0, 0.4);
 
-            left: 50%;
+            z-index: 1;
 
-            transform: translate(-50%, -50%);
+        }
 
-            width: 90%;
 
-            max-width: 800px;
 
-            text-align: center;
+        .banner-text {
 
-            color: white;
+            position: absolute;
 
-            font-size: 2rem;
+            z-index: 2;
 
-            font-weight: 700;
+            top: 50%;
 
-            line-height: 1.3;
+            left: 50%;
 
-        }
+            transform: translate(-50%, -50%);
 
+            width: 90%;
 
+            max-width: 800px;
 
-        @media (max-width: 768px) {
+            text-align: center;
 
-            .nav-container {
+            color: white;
 
-                padding: 0 20px;
+            font-size: 2rem;
 
-            }
+            font-weight: 700;
 
-            header {
+            line-height: 1.3;
 
-                padding: 10px 0;
+        }
 
-            }
 
 
+        @media (max-width: 768px) {
 
-            .menu-toggle {
+            .nav-container {
 
-                display: block;
+                padding: 0 20px;
 
-            }
+            }
 
+            header {
 
+                padding: 10px 0;
 
-            nav {
+            }
 
-                position: absolute;
 
-                top: 60px;
 
-                right: 0;
+            .menu-toggle {
 
-                width: 100%;
+                display: block;
 
-                background: var(--primary);
+            }
 
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 
-                max-height: 0;
 
-                overflow: hidden;
+            nav {
 
-                transition: max-height 0.3s ease-in-out;
+                position: absolute;
 
-            }
+                top: 60px;
 
+                right: 0;
 
+                width: 100%;
 
-            nav.open {
+                background: var(--primary);
 
-                max-height: 300px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 
-            }
+                max-height: 0;
 
+                overflow: hidden;
 
+                transition: max-height 0.3s ease-in-out;
 
-            nav ul {
+            }
 
-                flex-direction: column;
 
-                padding: 20px;
 
-                gap: 15px;
+            nav.open {
 
-                text-align: center;
+                max-height: 300px;
 
-            }
+            }
 
 
 
-            nav a {
+            nav ul {
 
-                display: block;
+                flex-direction: column;
 
-                padding: 10px 0;
+                padding: 20px;
 
-                border-bottom: none;
+                gap: 15px;
 
-            }
+                text-align: center;
 
+            }
 
 
-            nav a:hover,
 
-            nav a[aria-current="page"] {
+            nav a {
 
-                border-bottom: none;
+                display: block;
 
-                color: var(--accent);
+                padding: 10px 0;
 
-            }
+                border-bottom: none;
 
+            }
 
 
-            .team-section { padding: 50px 15px; }
 
-            .team-section h1 { font-size: 30px; }
+            nav a:hover,
 
-            .team-section p { font-size: 16px; margin-bottom: 30px; }
+            nav a[aria-current="page"] {
 
-           
+                border-bottom: none;
 
-            .team-container {
+                color: var(--accent);
 
-                grid-template-columns: 1fr;
+            }
 
-                gap: 80px 0;
 
-            }
 
-            .team-card {
+            .team-section { padding: 50px 15px; }
 
-                width: 100%;
+            .team-section h1 { font-size: 30px; }
 
-                max-width: 300px;
+            .team-section p { font-size: 16px; margin-bottom: 30px; }
 
-                margin: 0 auto;
+           
 
-            }
+            .team-container {
 
-           
+                grid-template-columns: 1fr;
 
-            .hologram-base {
+                gap: 80px 0;
 
-                width: 200px;
+            }
 
-                margin-top: 100px;
+            .team-card {
 
-            }
+                width: 100%;
 
-           
+                max-width: 300px;
 
-            .team-card img {
+                margin: 0 auto;
 
-                width: 150px;
+            }
 
-                height: 150px;
+           
 
-                max-width: 150px;
+            .hologram-base {
 
-            }
+                width: 200px;
 
-            .card-info { margin-top: -30px; }
+                margin-top: 100px;
 
+            }
 
+           
 
-            .project-section { padding: 50px 15px; }
+            .team-card img {
 
-            .project-gallery { height: 300px; }
+                width: 150px;
 
-            .project-info h3 { font-size: 1.2rem; }
+                height: 150px;
 
-            .project-info p { font-size: 0.9rem; }
+                max-width: 150px;
 
-           
+            }
 
-            .banner { height: 35vh; }
+            .card-info { margin-top: -30px; }
 
-            .banner-text { font-size: 1.2rem; }
 
-           
 
-            .modal-content {
+            .project-section { padding: 50px 15px; }
 
-                padding: 20px;
+            .project-gallery { height: 300px; }
 
-                max-width: 95vw;
+            .project-info h3 { font-size: 1.2rem; }
 
-            }
+            .project-info p { font-size: 0.9rem; }
 
-            .modal-content img {
+           
 
-                max-width: 180px;
+            .banner { height: 35vh; }
 
-                height: 180px;
+            .banner-text { font-size: 1.2rem; }
 
-            }
+           
 
-            .close-btn {
+            .modal-content {
 
-                top: 10px;
+                padding: 20px;
 
-                right: 15px;
+                max-width: 95vw;
 
-                font-size: 2rem;
+            }
 
-            }
+            .modal-content img {
 
-        }
+                max-width: 180px;
 
-    </style>
+                height: 180px;
+
+            }
+
+            .close-btn {
+
+                top: 10px;
+
+                right: 15px;
+
+                font-size: 2rem;
+
+            }
+
+        }
+
+    </style>
 
 </head>
 
@@ -1164,309 +1180,401 @@
 
 <header>
 
-    <div class="nav-container">
+    <div class="nav-container">
 
-        <div class="logo">Group 5</div>
+        <div class="logo">Group 5</div>
 
-        <button class="menu-toggle">☰</button>
+        <button class="menu-toggle">☰</button>
 
 
 
-        <nav>
+        <nav>
 
-            <ul>
+            <ul>
 
-                <li><a href="index.html">Home</a></li>
+                <!-- Placeholder navigation links -->
 
-                <li><a href="about.html">About</a></li>
+                <li><a href="#home">Home</a></li>
 
-                <li><a href="portfolio.html" aria-current="page">Portfolio</a></li>
+                <li><a href="#about">About</a></li>
 
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#portfolio" aria-current="page">Portfolio</a></li>
 
-            </ul>
+                <li><a href="#contact">Contact</a></li>
 
-        </nav>
+            </ul>
 
-    </div>
+        </nav>
+
+    </div>
 
 </header>
 
 
 
-<section class="team-section">
+<section class="team-section" id="team">
 
-    <hr class="team-divider">
+    <hr class="team-divider">
 
-    <h3>Showcasing Data Innovations</h3>
+    <h3>Showcasing Data Innovations</h3>
 
-    <h1>Meet the team</h1>
+    <h1>Meet the team</h1>
 
-    <p>
+    <p>
 
-        A team of aspiring professionals with a shared goal:
+        A team of aspiring professionals with a shared goal:
 
-        to innovate, inspire, and revolutionize the way technology works in everyday life.
+        to innovate, inspire, and revolutionize the way technology works in everyday life.
 
-    </p>
+    </p>
 
 
 
-    <div class="team-container">
+    <div class="team-container">
 
-        <div class="team-card" data-name="Joanna Marie L. Perdido" data-role="IT Manager" data-cv="#">
+        <!-- Team Member 1: Joanna Marie L. Perdido -->
 
-            <img src="./joanna.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/1d4a4b/ffffff?text=Joanna';" alt="Joanna Marie L. Perdido" onclick="openModal(this)">
+        <!-- CV path set to cv/joanna.pdf -->
 
-            <div class="hologram-base"></div>
+        <div class="team-card" data-name="Joanna Marie L. Perdido" data-role="IT Manager" data-cv="cv/joanna.pdf">
 
-            <div class="card-info">
+            <img src="./joanna.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/1d4a4b/ffffff?text=Joanna';" alt="Joanna Marie L. Perdido" onclick="openModal(this)">
 
-                <h2>Joanna Marie L. Perdido</h2>
+            <div class="hologram-base"></div>
 
-                <h4>IT Manager</h4>
+            <div class="card-info">
 
-                <a href="#" class="cv-btn">Download CV</a>
+                <h2>Joanna Marie L. Perdido</h2>
 
-            </div>
+                <h4>IT Manager</h4>
 
-        </div>
+                <a href="cv/joanna.pdf" class="cv-btn" download>Download CV</a>
 
+            </div>
 
+        </div>
 
-        <div class="team-card" data-name="Rea Mea A. Quijarro" data-role="Web Developer" data-cv="#">
 
-            <img src="./rea.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/0a7e8c/ffffff?text=Rea+Mea';" alt="Rea Mea A. Quijarro" onclick="openModal(this)">
 
-            <div class="hologram-base"></div>
+        <!-- Team Member 2: Rea Mea A. Quijarro -->
 
-            <div class="card-info">
+        <!-- CV path set to cv/rea.pdf -->
 
-                <h2>Rea Mea A. Quijarro</h2>
+        <div class="team-card" data-name="Rea Mea A. Quijarro" data-role="Web Developer" data-cv="cv/rea.pdf">
 
-                <h4>Web Developer</h4>
+            <img src="./rea.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/0a7e8c/ffffff?text=Rea+Mea';" alt="Rea Mea A. Quijarro" onclick="openModal(this)">
 
-                <a href="#" class="cv-btn">Download CV</a>
+            <div class="hologram-base"></div>
 
-            </div>
+            <div class="card-info">
 
-        </div>
+                <h2>Rea Mea A. Quijarro</h2>
 
+                <h4>Web Developer</h4>
 
+                <a href="cv/rea.pdf" class="cv-btn" download>Download CV</a>
 
-        <div class="team-card" data-name="Jenny Rose S. Mina" data-role="UI/UX Designer" data-cv="#">
+            </div>
 
-            <img src="./Jenny.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/1d4a4b/ffffff?text=Jenny';" alt="Jenny Rose S. Mina" onclick="openModal(this)">
+        </div>
 
-            <div class="hologram-base"></div>
 
-            <div class="card-info">
 
-                <h2>Jenny Rose S. Mina</h2>
+        <!-- Team Member 3: Jenny Rose S. Mina -->
 
-                <h4>UI/UX Designer</h4>
+        <!-- CV path set to cv/jenny.pdf -->
 
-                <a href="#" class="cv-btn">Download CV</a>
+        <div class="team-card" data-name="Jenny Rose S. Mina" data-role="UI/UX Designer" data-cv="cv/jenny.pdf">
 
-            </div>
+            <img src="./Jenny.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/1d4a4b/ffffff?text=Jenny';" alt="Jenny Rose S. Mina" onclick="openModal(this)">
 
-        </div>
+            <div class="hologram-base"></div>
 
+            <div class="card-info">
 
+                <h2>Jenny Rose S. Mina</h2>
 
-        <div class="team-card" data-name="John Mark P. Noleal" data-role="Technical Solutions Engineer" data-cv="#">
+                <h4>UI/UX Designer</h4>
 
-            <img src="./jms.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/0a7e8c/ffffff?text=John+Mark';" alt="John Mark P. Noleal" onclick="openModal(this)">
+                <a href="cv/jenny.pdf" class="cv-btn" download>Download CV</a>
 
-            <div class="hologram-base"></div>
+            </div>
 
-            <div class="card-info">
+        </div>
 
-                <h2>John Mark P. Noleal</h2>
 
-                <h4>Technical Solutions Engineer</h4>
 
-                <a href="#" class="cv-btn">Download CV</a>
+        <!-- Team Member 4: John Mark P. Noleal -->
 
-            </div>
+        <!-- CV path set to cv/john_mark.pdf -->
 
-        </div>
+        <div class="team-card" data-name="John Mark P. Noleal" data-role="Technical Solutions Engineer" data-cv="cv/john_mark.pdf">
 
+            <img src="./jms.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/0a7e8c/ffffff?text=John+Mark';" alt="John Mark P. Noleal" onclick="openModal(this)">
 
+            <div class="hologram-base"></div>
 
-        <div class="team-card" data-name="Nathaniel I. Medina" data-role="Full-Stack Developer" data-cv="#">
+            <div class="card-info">
 
-            <img src="./kens.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/1d4a4b/ffffff?text=Nathaniel';" alt="Nathaniel I. Medina" onclick="openModal(this)">
+                <h2>John Mark P. Noleal</h2>
 
-            <div class="hologram-base"></div>
+                <h4>Technical Solutions Engineer</h4>
 
-            <div class="card-info">
+                <a href="cv/john_mark.pdf" class="cv-btn" download>Download CV</a>
 
-                <h2>Nathaniel I. Medina</h2>
+            </div>
 
-                <h4>Full-Stack Developer</h4>
+        </div>
 
-                <a href="#" class="cv-btn">Download CV</a>
 
-            </div>
 
-        </div>
+        <!-- Team Member 5: Nathaniel I. Medina -->
 
+        <!-- CV path set to cv/nathaniel.pdf -->
 
+        <div class="team-card" data-name="Nathaniel I. Medina" data-role="Full-Stack Developer" data-cv="cv/nathaniel.pdf">
 
-        <div class="team-card" data-name="John Dave M. Mones" data-role="Security Analyst" data-cv="#">
+            <img src="./kens.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/1d4a4b/ffffff?text=Nathaniel';" alt="Nathaniel I. Medina" onclick="openModal(this)">
 
-            <img src="./monezz.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/0a7e8c/ffffff?text=John+Dave';" alt="John Dave M. Mones" onclick="openModal(this)">
+            <div class="hologram-base"></div>
 
-            <div class="hologram-base"></div>
+            <div class="card-info">
 
-            <div class="card-info">
+                <h2>Nathaniel I. Medina</h2>
 
-                <h2>John Dave M. Mones</h2>
+                <h4>Full-Stack Developer</h4>
 
-                <h4>Security Analyst</h4>
+                <a href="cv/nathaniel.pdf" class="cv-btn" download>Download CV</a>
 
-                <a href="#" class="cv-btn">Download CV</a>
+            </div>
 
-            </div>
+        </div>
 
-        </div>
 
 
+        <!-- Team Member 6: John Dave M. Mones -->
 
-        <div class="team-card" data-name="Joshua A. Mendoza" data-role="Content Strategist" data-cv="#">
+        <!-- CV path set to cv/john_dave.pdf -->
 
-            <img src="./Joshua.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/1d4a4b/ffffff?text=Joshua';" alt="Joshua A. Mendoza" onclick="openModal(this)">
+        <div class="team-card" data-name="John Dave M. Mones" data-role="Security Analyst" data-cv="cv/john_dave.pdf">
 
-            <div class="hologram-base"></div>
+            <img src="./monezz.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/0a7e8c/ffffff?text=John+Dave';" alt="John Dave M. Mones" onclick="openModal(this)">
 
-            <div class="card-info">
+            <div class="hologram-base"></div>
 
-                <h2>Joshua A. Mendoza</h2>
+            <div class="card-info">
 
-                <h4>Content Strategist</h4>
+                <h2>John Dave M. Mones</h2>
 
-                <a href="#" class="cv-btn">Download CV</a>
+                <h4>Security Analyst</h4>
 
-            </div>
+                <a href="cv/john_dave.pdf" class="cv-btn" download>Download CV</a>
 
-        </div>
+            </div>
 
-    </div>
+        </div>
+
+
+
+        <!-- Team Member 7: Joshua A. Mendoza -->
+
+        <!-- CV path set to cv/joshua.pdf -->
+
+        <div class="team-card" data-name="Joshua A. Mendoza" data-role="Content Strategist" data-cv="cv/joshua.pdf">
+
+            <img src="./Joshua.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/1d4a4b/ffffff?text=Joshua';" alt="Joshua A. Mendoza" onclick="openModal(this)">
+
+            <div class="hologram-base"></div>
+
+            <div class="card-info">
+
+                <h2>Joshua A. Mendoza</h2>
+
+                <h4>Content Strategist</h4>
+
+                <a href="cv/joshua.pdf" class="cv-btn" download>Download CV</a>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
 
 
-<section class="project-section">
+<section class="project-section" id="portfolio">
 
-    <h2>BEHIND EVERY PROJECT</h2>
-
-
-
-    <div class="project-carousel-container">
-
-        <div class="project-gallery" id="projectGallery">
-
-           
-
-            <div class="carousel-item active" data-title="./lab.png">
-
-                <img src="./lab.jpg">
-
-            </div>
-
-           
-
-            <div class="carousel-item" data-title="Project 2 Title" data-description="Description for project 2.">
-
-                <img src="./lab2.jpg">
-
-            </div>
-
-           
-
-            <div class="carousel-item" data-title="Project 3 Title" data-description="Description for project 3.">
-
-                <img src="./lab3.jpg">
-
-            </div>
-
-           
-
-            <div class="carousel-item" data-title="Project 4 Title" data-description="Description for project 4.">
-
-                <img src="./lab4.jpg">
-
-            </div>
-
-           
-
-            <div class="carousel-item" data-title="Project 5 Title" data-description="Description for project 5.">
-
-                <img src="./lab5.jpg">
-
-            </div>
-
-           
-
-            <div class="carousel-item" data-title="Project 6 Title" data-description="Description for project 6.">
-
-                <img src="./yeah.jpg">
-
-            </div>
-
-           
-
-            <div class="carousel-item" data-title="Project 7 Title" data-description="Description for project 7.">
-
-                <img src="./yeahh.jpg">
-
-            </div>
-
-           
-
-            <div class="carousel-item" data-title="Project 8 Title" data-description="Description for project 8.">
-
-                <img src="./yeahhh.jpg">
-
-            </div>
-
-           
-
-            <div class="carousel-item" data-title="Project 9 Title" data-description="Description for project 9.">
-
-                <img src="./yes.jpg">
-
-            </div>
-
-           
-
-            <div class="carousel-item" data-title="Project 10 Title" data-description="Description for project 10.">
-
-                <img src="./students.jpg">
-
-            </div>
-
-        </div>
-
-       
-
-        <button class="carousel-control prev-btn" onclick="moveCarousel(-1)">&#10094;</button>
-
-        <button class="carousel-control next-btn" onclick="moveCarousel(1)">&#10095;</button>
+    <h2>BEHIND EVERY PROJECT</h2>
 
 
 
-        <div class="project-info">
+    <div class="project-carousel-container">
 
-            <h3 id="project-title">Project 1 Title</h3>
+        <div class="project-gallery" id="projectGallery">
 
-            <p id="project-description">Description for project 1.</p>
+           
 
-        </div>
+            <!-- Project 1: Updated data-title and added data-description -->
 
-    </div>
+            <div class="carousel-item active" 
+
+                data-title="Data Science Laboratory Setup" 
+
+                data-description="An image depicting our collaborative data science laboratory, highlighting the environment where our most complex data projects are initiated and executed.">
+
+                <img src="./lab.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x450/1d4a4b/ffffff?text=Project+1+Lab+Setup'">
+
+            </div>
+
+           
+
+            <!-- Project 2: Updated data-title and data-description -->
+
+            <div class="carousel-item" 
+
+                data-title="Machine Learning Model Training" 
+
+                data-description="Snapshot of a machine learning model training session, focusing on deep neural network architectures for predictive analytics.">
+
+                <img src="./lab2.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x450/0a7e8c/ffffff?text=Project+2+ML+Training'">
+
+            </div>
+
+           
+
+            <!-- Project 3: Updated data-title and data-description -->
+
+            <div class="carousel-item" 
+
+                data-title="Real-time Visualization Dashboard" 
+
+                data-description="Design and implementation of a real-time data visualization dashboard using modern charting libraries to monitor system performance.">
+
+                <img src="./lab3.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x450/1d4a4b/ffffff?text=Project+3+Dashboard'">
+
+            </div>
+
+           
+
+            <!-- Project 4: Updated data-title and data-description -->
+
+            <div class="carousel-item" 
+
+                data-title="Backend System Architecture Review" 
+
+                data-description="The team reviewing the scalable backend system architecture built on cloud services, ensuring robust and high-availability deployment.">
+
+                <img src="./lab4.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x450/0a7e8c/ffffff?text=Project+4+Architecture'">
+
+            </div>
+
+           
+
+            <!-- Project 5: Updated data-title and data-description -->
+
+            <div class="carousel-item" 
+
+                data-title="Agile Planning Session" 
+
+                data-description="A photo capturing our weekly agile planning session, prioritizing user stories and setting sprint goals for the upcoming development cycle.">
+
+                <img src="./lab5.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x450/1d4a4b/ffffff?text=Project+5+Agile+Planning'">
+
+            </div>
+
+           
+
+            <!-- Project 6: Updated data-title and data-description -->
+
+            <div class="carousel-item" 
+
+                data-title="Web Development Mockup Review" 
+
+                data-description="Reviewing high-fidelity UI/UX mockups before handing them off for front-end development, ensuring design consistency and user flow.">
+
+                <img src="./yeah.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x450/0a7e8c/ffffff?text=Project+6+Mockup+Review'">
+
+            </div>
+
+           
+
+            <!-- Project 7: Updated data-title and data-description -->
+
+            <div class="carousel-item" 
+
+                data-title="Cybersecurity Penetration Testing" 
+
+                data-description="Conducting penetration testing exercises on our applications to identify vulnerabilities and strengthen the overall security posture.">
+
+                <img src="./yeahh.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x450/1d4a4b/ffffff?text=Project+7+Security+Testing'">
+
+            </div>
+
+           
+
+            <!-- Project 8: Updated data-title and data-description -->
+
+            <div class="carousel-item" 
+
+                data-title="Database Optimization Strategy" 
+
+                data-description="Developing a database optimization strategy to improve query performance and reduce latency for high-traffic data retrieval operations.">
+
+                <img src="./yeahhh.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x450/0a7e8c/ffffff?text=Project+8+DB+Optimization'">
+
+            </div>
+
+           
+
+            <!-- Project 9: Updated data-title and data-description -->
+
+            <div class="carousel-item" 
+
+                data-title="Cloud Infrastructure Deployment" 
+
+                data-description="Successfully deploying a new microservices architecture onto a public cloud platform, managed entirely through Infrastructure as Code (IaC).">
+
+                <img src="./yes.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x450/1d4a4b/ffffff?text=Project+9+Cloud+Deployment'">
+
+            </div>
+
+           
+
+            <!-- Project 10: Updated data-title and data-description -->
+
+            <div class="carousel-item" 
+
+                data-title="Group Presentation of Final Project" 
+
+                data-description="The moment of presenting our capstone project to the faculty and peers, showcasing months of research, development, and teamwork.">
+
+                <img src="./students.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x450/0a7e8c/ffffff?text=Project+10+Presentation'">
+
+            </div>
+
+        </div>
+
+       
+
+        <button class="carousel-control prev-btn" onclick="moveCarousel(-1)">&#10094;</button>
+
+        <button class="carousel-control next-btn" onclick="moveCarousel(1)">&#10095;</button>
+
+
+
+        <div class="project-info">
+
+            <!-- Default content will be updated by showProject on load -->
+
+            <h3 id="project-title">Loading Project Title...</h3>
+
+            <p id="project-description">Loading project description...</p>
+
+        </div>
+
+    </div>
 
 </section>
 
@@ -1474,15 +1582,17 @@
 
 <section class="banner">
 
-    <div class="banner-overlay"></div>
+    <div class="banner-overlay"></div>
 
-    <img src="./Information-Technology-2.jpeg">
+    <!-- Placeholder image with fallback -->
 
-    <h2 class="banner-text">
+    <img src="./Information-Technology-2.jpeg" onerror="this.onerror=null; this.src='https://placehold.co/1200x400/1d4a4b/ffffff?text=IT+and+Teamwork+Banner'">
 
-        Tech, Creativity, and Teamwork – Transforming Classroom Knowledge into Exciting Projects!
+    <h2 class="banner-text">
 
-    </h2>
+        Tech, Creativity, and Teamwork – Transforming Classroom Knowledge into Exciting Projects!
+
+    </h2>
 
 </section>
 
@@ -1492,21 +1602,23 @@
 
 
 
+<!-- Team Member Modal -->
+
 <div id="memberModal" class="modal-overlay">
 
-    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <span class="close-btn" onclick="closeModal()">&times;</span>
 
-    <div class="modal-content">
+    <div class="modal-content">
 
-        <img id="modal-img" src="" alt="Team Member Photo">
+        <img id="modal-img" src="" alt="Team Member Photo">
 
-        <h2 id="modal-name"></h2>
+        <h2 id="modal-name"></h2>
 
-        <h4 id="modal-role"></h4>
+        <h4 id="modal-role"></h4>
 
-        <a id="modal-cv" href="#" class="cv-btn">Download CV</a>
+        <a id="modal-cv" href="#" class="cv-btn" download>Download CV</a>
 
-    </div>
+    </div>
 
 </div>
 
@@ -1514,162 +1626,205 @@
 
 <script>
 
-    let currentProjectIndex = 0;
+    let currentProjectIndex = 0;
 
-    let projectItems;
+    let projectItems;
 
+    // Wait for the DOM to be fully loaded
 
+    document.addEventListener('DOMContentLoaded', () => {
 
+        const menuToggle = document.querySelector('.menu-toggle');
 
-    document.addEventListener('DOMContentLoaded', () => {
+        const navUl = document.querySelector('nav');
 
-        const menuToggle = document.querySelector('.menu-toggle');
 
-        const navUl = document.querySelector('nav');
+        // Mobile menu toggle logic
 
+        if (menuToggle && navUl) {
 
+            menuToggle.addEventListener('click', () => {
 
-        if (menuToggle && navUl) {
+                navUl.classList.toggle('open');
 
-            menuToggle.addEventListener('click', () => {
+            });
 
-                navUl.classList.toggle('open');
+            navUl.querySelectorAll('a').forEach(link => {
 
-            });
+                link.addEventListener('click', () => {
 
-        }
+                    navUl.classList.remove('open'); // Close menu on link click
 
-       
+                });
 
-        projectItems = document.querySelectorAll('.carousel-item');
+            });
 
+        }
 
+       
 
-        showProject(currentProjectIndex);
+        projectItems = document.querySelectorAll('.carousel-item');
 
-    });
 
+        // Initialize carousel on load
 
+        showProject(currentProjectIndex);
 
-    function moveCarousel(direction) {
+    });
 
-        let newIndex = currentProjectIndex + direction;
 
-        const totalProjects = projectItems.length;
 
+    // Function to navigate the project carousel
 
+    function moveCarousel(direction) {
 
-        if (newIndex >= totalProjects) {
+        let newIndex = currentProjectIndex + direction;
 
-            newIndex = 0;
+        const totalProjects = projectItems.length;
 
-        } else if (newIndex < 0) {
 
-            newIndex = totalProjects - 1;
 
-        }
+        if (newIndex >= totalProjects) {
 
-       
+            newIndex = 0; // Loop back to the start
 
-        currentProjectIndex = newIndex;
+        } else if (newIndex < 0) {
 
-        showProject(currentProjectIndex);
+            newIndex = totalProjects - 1; // Loop back to the end
 
-    }
+        }
 
-   
+       
 
-    function showProject(index) {
+        currentProjectIndex = newIndex;
 
-        if (!projectItems || projectItems.length === 0) return;
+        showProject(currentProjectIndex);
 
+    }
 
+   
 
-        projectItems.forEach(item => {
+    // Function to display the selected project and update its details
 
-            item.classList.remove('active');
+    function showProject(index) {
 
-        });
+        if (!projectItems || projectItems.length === 0) return;
 
 
 
-        const selectedItem = projectItems[index];
+        projectItems.forEach(item => {
 
-        selectedItem.classList.add('active');
+            item.classList.remove('active');
 
-    }
+        });
 
 
 
-    function openModal(imgElement) {
+        const selectedItem = projectItems[index];
 
-        const modal = document.getElementById("memberModal");
+        selectedItem.classList.add('active');
 
-        const modalImg = document.getElementById("modal-img");
+        
 
-        const modalName = document.getElementById("modal-name");
+        // Update project title and description based on data attributes
 
-        const modalRole = document.getElementById("modal-role");
+        const titleElement = document.getElementById('project-title');
 
-        const modalCV = document.getElementById("modal-cv");
+        const descriptionElement = document.getElementById('project-description');
 
 
 
-        const teamCard = imgElement.closest('.team-card');
+        const title = selectedItem.getAttribute('data-title') || 'Untitled Project';
 
+        const description = selectedItem.getAttribute('data-description') || 'No description available.';
 
 
-        const nameText = teamCard.dataset.name;
 
-        const roleText = teamCard.dataset.role;
+        titleElement.textContent = title;
 
-        const cvLink = teamCard.dataset.cv;
+        descriptionElement.textContent = description;
 
+    }
 
 
-        modal.style.display = "flex";
 
-       
+    // Function to open the member detail modal
 
-        modalImg.src = imgElement.src;
+    function openModal(imgElement) {
 
-        modalName.innerText = nameText;
+        const modal = document.getElementById("memberModal");
 
-        modalRole.innerText = roleText;
+        const modalImg = document.getElementById("modal-img");
 
-        modalCV.setAttribute('href', cvLink);
+        const modalName = document.getElementById("modal-name");
 
+        const modalRole = document.getElementById("modal-role");
 
+        const modalCV = document.getElementById("modal-cv");
 
-        document.body.style.overflow = 'hidden';
 
-    }
 
+        const teamCard = imgElement.closest('.team-card');
 
 
-    function closeModal() {
 
-        const modal = document.getElementById("memberModal");
+        const nameText = teamCard.dataset.name;
 
-        modal.style.display = "none";
+        const roleText = teamCard.dataset.role;
 
-        document.body.style.overflow = '';
+        const cvLink = teamCard.dataset.cv; // Get the CV link from data-cv
 
-    }
 
 
+        modal.style.display = "flex";
 
-    window.onclick = function(event) {
+       
 
-        const modal = document.getElementById("memberModal");
+        modalImg.src = imgElement.src;
 
-        if (event.target === modal) {
+        modalName.innerText = nameText;
 
-            closeModal();
+        modalRole.innerText = roleText;
 
-        }
+        modalCV.setAttribute('href', cvLink); // Set the download link
 
-    }
+        modalCV.setAttribute('download', ''); // Ensure it triggers a download
+
+        
+
+        document.body.style.overflow = 'hidden';
+
+    }
+
+
+
+    // Function to close the member detail modal
+
+    function closeModal() {
+
+        const modal = document.getElementById("memberModal");
+
+        modal.style.display = "none";
+
+        document.body.style.overflow = '';
+
+    }
+
+
+
+    // Close modal when clicking outside the content
+
+    window.onclick = function(event) {
+
+        const modal = document.getElementById("memberModal");
+
+        if (event.target === modal) {
+
+            closeModal();
+
+        }
+
+    }
 
 </script>
 
@@ -1678,7 +1833,3 @@
 </body>
 
 </html>
-
-
-
-
