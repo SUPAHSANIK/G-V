@@ -1,226 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About – Group 5</title>
-    <!-- Load Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Custom styles for consistent theming and font */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-        
-        :root {
-            --primary-color: #4f46e5; /* Indigo 600 */
-            --secondary-color: #374151; /* Gray 700 */
-            --bg-dark: #111827; /* Gray 900 */
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About – Group 5</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for consistent theming and font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        :root {
+            --primary-color: #4f46e5; /* Indigo 600 */
+            --secondary-color: #374151; /* Gray 700 */
+            --bg-dark: #111827; /* Gray 900 */
+        }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: #f3f4f6; /* Gray 100 */
-        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: #f3f4f6; /* Gray 100 */
+        }
 
-        /* Styling for the mobile navigation to slide in */
-        .mobile-nav-hidden {
-            display: none;
-        }
-
-        /* Custom image placeholder styling for 'student.jpg' */
-        .about-image-placeholder {
-            min-height: 300px;
-            background-color: var(--secondary-color);
-            border: 2px solid var(--primary-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: #d1d5db;
-            text-align: center;
-        }
-
-    </style>
+        /* Styling for the mobile navigation to slide in */
+        .mobile-nav-hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body class="min-h-screen pt-16">
 
 <!-- HEADER: Consistent Navigation Bar -->
 <header class="fixed top-0 left-0 right-0 z-50 bg-gray-900 shadow-lg border-b border-indigo-900/50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-16">
-            <div class="flex items-center">
-                <a href="index.html" class="text-2xl font-extrabold text-indigo-400 tracking-wider">Group 5</a>
-            </div>
-            
-            <!-- Desktop Navigation -->
-            <nav class="hidden md:flex space-x-8" id="desktop-nav">
-                <a href="index.html" class="text-gray-300 hover:text-indigo-400 transition duration-300 font-medium">Home</a>
-                <a href="about.html" class="text-white hover:text-indigo-400 transition duration-300 font-medium border-b-2 border-indigo-500 pb-1" aria-current="page">About</a>
-                <a href="portfolio.html" class="text-gray-300 hover:text-indigo-400 transition duration-300 font-medium">Portfolio</a>
-                <a href="contact.html" class="text-gray-300 hover:text-indigo-400 transition duration-300 font-medium">Contact</a>
-            </nav>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex items-center">
+                <a href="index.html" class="text-2xl font-extrabold text-indigo-400 tracking-wider">Group 5</a>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8" id="desktop-nav">
+                <a href="index.html" class="text-gray-300 hover:text-indigo-400 transition duration-300 font-medium">Home</a>
+                <a href="about.html" class="text-white hover:text-indigo-400 transition duration-300 font-medium border-b-2 border-indigo-500 pb-1" aria-current="page">About</a>
+                <a href="portfolio.html" class="text-gray-300 hover:text-indigo-400 transition duration-300 font-medium">Portfolio</a>
+                <a href="contact.html" class="text-gray-300 hover:text-indigo-400 transition duration-300 font-medium">Contact</a>
+            </nav>
 
-            <!-- Mobile Menu Toggle -->
-            <button id="menu-toggle" class="md:hidden text-gray-300 hover:text-white focus:outline-none p-2 rounded-lg transition duration-300">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
-        </div>
-    </div>
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-toggle" class="md:hidden text-gray-300 hover:text-white focus:outline-none p-2 rounded-lg transition duration-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </div>
 </header>
 
 <!-- Mobile Navigation Menu (Hidden by default) -->
 <nav id="mobile-menu" class="mobile-nav-hidden fixed inset-x-0 top-16 bg-gray-800 z-40 md:hidden transition duration-300 ease-in-out">
-    <div class="px-2 pt-2 pb-3 space-y-1">
-        <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Home</a>
-        <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-indigo-700/50" aria-current="page">About</a>
-        <a href="portfolio.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Portfolio</a>
-        <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
-    </div>
+    <div class="px-2 pt-2 pb-3 space-y-1">
+        <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Home</a>
+        <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-indigo-700/50" aria-current="page">About</a>
+        <a href="portfolio.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Portfolio</a>
+        <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
+    </div>
 </nav>
 
 <!-- Main Content Area -->
 <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-24 space-y-20">
 
-    <!-- About Us / Hero Section -->
-    <section class="grid lg:grid-cols-2 gap-12 items-center bg-gray-800 p-8 rounded-3xl shadow-xl border-t-4 border-indigo-600">
-        <!-- Text Content -->
-        <div class="hero-left">
-            <h1 class="text-5xl font-extrabold text-indigo-400 mb-6">About Us</h1>
-            <p class="text-lg text-gray-300 leading-relaxed text-justify">
-                We are a passionate group of Information Technology students driven by curiosity
-                and a vision for the future. Every project we create is built with imagination, teamwork, and a commitment to
-                pushing boundaries. From intuitive websites to smart digital solutions, we turn classroom concepts into real,
-                meaningful innovations that prepare us to become tomorrow’s tech leaders.
-            </p>
-        </div>
-        
-        <!-- Image Placeholder -->
-        <div class="hero-right w-full">
-            <div class="rounded-2xl shadow-2xl overflow-hidden">
-                <div class="./student.jpg">
-                    <span class="./student.jpg">Students Working Placeholder</span>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- About Us / Hero Section -->
+    <section class="grid lg:grid-cols-2 gap-12 items-center bg-gray-800 p-8 rounded-3xl shadow-xl border-t-4 border-indigo-600">
+        <!-- Text Content -->
+        <div class="hero-left">
+            <h1 class="text-5xl font-extrabold text-indigo-400 mb-6">About Us</h1>
+            <p class="text-lg text-gray-300 leading-relaxed text-justify">
+                We are a passionate group of Information Technology students driven by curiosity
+                and a vision for the future. Every project we create is built with imagination, teamwork, and a commitment to
+                pushing boundaries. From intuitive websites to smart digital solutions, we turn classroom concepts into real,
+                meaningful innovations that prepare us to become tomorrow’s tech leaders.
+            </p>
+        </div>
+        
+        <!-- Actual Image from ./student.jpg -->
+        <div class="hero-right w-full">
+            <div class="rounded-2xl shadow-2xl overflow-hidden border-2 border-indigo-600">
+                <!-- Image tag added here, pointing to the local asset -->
+                <img 
+                    src="./student.jpg" 
+                    alt="Group 5 students working collaboratively" 
+                    class="w-full h-auto object-cover transition duration-500 hover:scale-[1.02]" 
+                    loading="lazy"
+                    <!-- Fallback placeholder if the image fails to load -->
+                    onerror="this.onerror=null; this.src='https://placehold.co/800x600/374151/d1d5db?text=Image+Loading+Error&font=Inter';">
+            </div>
+        </div>
+    </section>
 
-    <!-- Our Mission Section -->
-    <section class="mission-section text-center p-10 bg-gray-800 rounded-3xl shadow-xl border-l-4 border-indigo-600">
-        <div class="mission-full max-w-4xl mx-auto">
-            <h2 class="text-4xl font-bold text-white mb-4">Our Mission</h2>
-            <p class="text-xl text-gray-300">
-                We work in a way that makes every project smooth and successful.
-                The points below show what we value and how we deliver our services.
-                From new ideas to good teamwork and strong skills, we aim to do our best in every project.
-            </p>
-        </div>
-    </section>
+    <!-- Our Mission Section -->
+    <section class="mission-section text-center p-10 bg-gray-800 rounded-3xl shadow-xl border-l-4 border-indigo-600">
+        <div class="mission-full max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold text-white mb-4">Our Mission</h2>
+            <p class="text-xl text-gray-300">
+                We work in a way that makes every project smooth and successful.
+                The points below show what we value and how we deliver our services.
+                From new ideas to good teamwork and strong skills, we aim to do our best in every project.
+            </p>
+        </div>
+    </section>
 
-    <!-- What Sets Us Apart (Values) Section -->
-    <section class="text-center">
-        <h2 class="text-4xl font-bold text-white mb-12">What Sets Us Apart</h2>
-        <p class="text-lg text-gray-400 mb-12 max-w-3xl mx-auto">
-            We focus on providing services that are creative, reliable, and centered around your needs. 
-            Each of the values below represents how we work and the kind of experience we aim to give every client.
-            From bringing fresh ideas to collaborating closely and delivering high-quality results, our team is 
-            committed to making every project a success.
-        </p>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Innovation Card -->
-            <div class="card bg-gray-800 p-6 rounded-xl shadow-lg border-t-4 border-indigo-500 hover:bg-gray-700/50 transition duration-300">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-indigo-400 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M3.636 5.636l.707.707m0 12.728l.707-.707m12.728-.707l.707.707M14 12a2 2 0 11-4 0 2 2 0 014 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-1 2-2-1m7-1l1 2 2-1"/></svg>
-                <h3 class="text-xl font-semibold text-white mb-2">Innovation</h3>
-                <p class="text-gray-400 text-sm">We embrace new ideas and creative solutions to deliver cutting-edge digital projects.</p>
-            </div>
-            <!-- Collaboration Card -->
-            <div class="card bg-gray-800 p-6 rounded-xl shadow-lg border-t-4 border-indigo-500 hover:bg-gray-700/50 transition duration-300">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-indigo-400 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20v-2c0-.656-.126-1.283-.356-1.857M18 10a5 5 0 11-10 0 5 5 0 0110 0zm4 0a7 7 0 11-14 0 7 7 0 0114 0zM12 18h.01"/></svg>
-                <h3 class="text-xl font-semibold text-white mb-2">Collaboration</h3>
-                <p class="text-gray-400 text-sm">Teamwork is at the heart of our process, ensuring high-quality outcomes for every project.</p>
-            </div>
-            <!-- Expertise Card -->
-            <div class="card bg-gray-800 p-6 rounded-xl shadow-lg border-t-4 border-indigo-500 hover:bg-gray-700/50 transition duration-300">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-indigo-400 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.002 2.002m-3.998-3.998L12 3l-1.001 2.001M21 17l-2-2m-2.998 2.002l1.998-2M18 14h.01M16 19l2 2m-2-2l-2-2m-4-7h.01M12 17h.01M10 10h.01M6 10h.01M18 10h.01"/></svg>
-                <h3 class="text-xl font-semibold text-white mb-2">Expertise</h3>
-                <p class="text-gray-400 text-sm">Our team has a diverse skill set in IT, design, and project management.</p>
-            </div>
-            <!-- Commitment Card -->
-            <div class="card bg-gray-800 p-6 rounded-xl shadow-lg border-t-4 border-indigo-500 hover:bg-gray-700/50 transition duration-300">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-indigo-400 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.03 12.03 0 003 12c0 3.088 1.44 5.867 3.692 7.747A11.996 11.996 0 0012 22c2.903 0 5.619-.948 7.808-2.503C19.56 17.867 21 15.088 21 12c0-2.315-.65-4.475-1.782-6.376z"/></svg>
-                <h3 class="text-xl font-semibold text-white mb-2">Commitment</h3>
-                <p class="text-gray-400 text-sm">We strive for excellence in every project, aiming to exceed expectations.</p>
-            </div>
-        </div>
-    </section>
+    <!-- What Sets Us Apart (Values) Section -->
+    <section class="text-center">
+        <h2 class="text-4xl font-bold text-white mb-12">What Sets Us Apart</h2>
+        <p class="text-lg text-gray-400 mb-12 max-w-3xl mx-auto">
+            We focus on providing services that are creative, reliable, and centered around your needs. 
+            Each of the values below represents how we work and the kind of experience we aim to give every client.
+            From bringing fresh ideas to collaborating closely and delivering high-quality results, our team is 
+            committed to making every project a success.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Innovation Card -->
+            <div class="card bg-gray-800 p-6 rounded-xl shadow-lg border-t-4 border-indigo-500 hover:bg-gray-700/50 transition duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-indigo-400 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M3.636 5.636l.707.707m0 12.728l.707-.707m12.728-.707l.707.707M14 12a2 2 0 11-4 0 2 2 0 014 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-1 2-2-1m7-1l1 2 2-1"/></svg>
+                <h3 class="text-xl font-semibold text-white mb-2">Innovation</h3>
+                <p class="text-gray-400 text-sm">We embrace new ideas and creative solutions to deliver cutting-edge digital projects.</p>
+            </div>
+            <!-- Collaboration Card -->
+            <div class="card bg-gray-800 p-6 rounded-xl shadow-lg border-t-4 border-indigo-500 hover:bg-gray-700/50 transition duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-indigo-400 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20v-2c0-.656-.126-1.283-.356-1.857M18 10a5 5 0 11-10 0 5 5 0 0110 0zm4 0a7 7 0 11-14 0 7 7 0 0114 0zM12 18h.01"/></svg>
+                <h3 class="text-xl font-semibold text-white mb-2">Collaboration</h3>
+                <p class="text-gray-400 text-sm">Teamwork is at the heart of our process, ensuring high-quality outcomes for every project.</p>
+            </div>
+            <!-- Expertise Card -->
+            <div class="card bg-gray-800 p-6 rounded-xl shadow-lg border-t-4 border-indigo-500 hover:bg-gray-700/50 transition duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-indigo-400 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.002 2.002m-3.998-3.998L12 3l-1.001 2.001M21 17l-2-2m-2.998 2.002l1.998-2M18 14h.01M16 19l2 2m-2-2l-2-2m-4-7h.01M12 17h.01M10 10h.01M6 10h.01M18 10h.01"/></svg>
+                <h3 class="text-xl font-semibold text-white mb-2">Expertise</h3>
+                <p class="text-gray-400 text-sm">Our team has a diverse skill set in IT, design, and project management.</p>
+            </div>
+            <!-- Commitment Card -->
+            <div class="card bg-gray-800 p-6 rounded-xl shadow-lg border-t-4 border-indigo-500 hover:bg-gray-700/50 transition duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-indigo-400 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.03 12.03 0 003 12c0 3.088 1.44 5.867 3.692 7.747A11.996 11.996 0 0012 22c2.903 0 5.619-.948 7.808-2.503C19.56 17.867 21 15.088 21 12c0-2.315-.65-4.475-1.782-6.376z"/></svg>
+                <h3 class="text-xl font-semibold text-white mb-2">Commitment</h3>
+                <p class="text-gray-400 text-sm">We strive for excellence in every project, aiming to exceed expectations.</p>
+            </div>
+        </div>
+    </section>
 
-    <!-- Expertise Section -->
-    <section class="expertise pt-10">
-        <h2 class="text-4xl font-bold text-white text-center mb-12">Our Core Expertise</h2>
+    <!-- Expertise Section -->
+    <section class="expertise pt-10">
+        <h2 class="text-4xl font-bold text-white text-center mb-12">Our Core Expertise</h2>
 
-        <div class="expertise-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Java Card -->
-            <div class="expertise-card bg-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-indigo-500">
-                <h3 class="text-xl font-semibold text-indigo-300 mb-2">Java Programming</h3>
-                <p class="text-gray-400 text-sm">Good understanding of Java basics, OOP concepts, and creating simple and efficient programs.</p>
-            </div>
-            <!-- HTML/Web Card -->
-            <div class="expertise-card bg-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-indigo-500">
-                <h3 class="text-xl font-semibold text-indigo-300 mb-2">HTML & Web Structure</h3>
-                <p class="text-gray-400 text-sm">Able to write clear and organized HTML to build neat and responsive web pages.</p>
-            </div>
-            <!-- Backend Card -->
-            <div class="expertise-card bg-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-indigo-500">
-                <h3 class="text-xl font-semibold text-indigo-300 mb-2">Backend Skills</h3>
-                <p class="text-gray-400 text-sm">Skilled in building basic backend functions, making APIs, and linking apps to databases.</p>
-            </div>
-            <!-- Debugging Card -->
-            <div class="expertise-card bg-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-indigo-500">
-                <h3 class="text-xl font-semibold text-indigo-300 mb-2">Debugging & Problem-Solving</h3>
-                <p class="text-gray-400 text-sm">Skilled at finding errors, fixing bugs quickly, and improving how software works.</p>
-            </div>
-        </div>
-    </section>
+        <div class="expertise-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Java Card -->
+            <div class="expertise-card bg-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-indigo-500">
+                <h3 class="text-xl font-semibold text-indigo-300 mb-2">Java Programming</h3>
+                <p class="text-gray-400 text-sm">Good understanding of Java basics, OOP concepts, and creating simple and efficient programs.</p>
+            </div>
+            <!-- HTML/Web Card -->
+            <div class="expertise-card bg-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-indigo-500">
+                <h3 class="text-xl font-semibold text-indigo-300 mb-2">HTML & Web Structure</h3>
+                <p class="text-gray-400 text-sm">Able to write clear and organized HTML to build neat and responsive web pages.</p>
+            </div>
+            <!-- Backend Card -->
+            <div class="expertise-card bg-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-indigo-500">
+                <h3 class="text-xl font-semibold text-indigo-300 mb-2">Backend Skills</h3>
+                <p class="text-gray-400 text-sm">Skilled in building basic backend functions, making APIs, and linking apps to databases.</p>
+            </div>
+            <!-- Debugging Card -->
+            <div class="expertise-card bg-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-indigo-500">
+                <h3 class="text-xl font-semibold text-indigo-300 mb-2">Debugging & Problem-Solving</h3>
+                <p class="text-gray-400 text-sm">Skilled at finding errors, fixing bugs quickly, and improving how software works.</p>
+            </div>
+        </div>
+    </section>
 
 </main>
 
 
 <!-- FOOTER: Consistent Footer Bar -->
 <footer class="mt-20 py-8 border-t border-gray-700/50 bg-gray-900/50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
-        &copy; 2025 Group 5 — All Rights Reserved. Designed with Tailwind CSS.
-    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
+        &copy; 2025 Group 5 — All Rights Reserved. Designed with Tailwind CSS.
+    </div>
 </footer>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-        /**
-         * Toggles the visibility of the mobile navigation menu.
-         */
-        function toggleMenu() {
-            mobileMenu.classList.toggle('mobile-nav-hidden');
-            // Accessibility improvement: toggle aria-expanded
-            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
-            menuToggle.setAttribute('aria-expanded', !isExpanded);
-        }
+        /**
+         * Toggles the visibility of the mobile navigation menu.
+         */
+        function toggleMenu() {
+            mobileMenu.classList.toggle('mobile-nav-hidden');
+            // Accessibility improvement: toggle aria-expanded
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+        }
 
-        // Event listener to toggle the menu on button click
-        menuToggle.addEventListener('click', toggleMenu);
+        // Event listener to toggle the menu on button click
+        menuToggle.addEventListener('click', toggleMenu);
 
-        // Optional: Close menu when a link is clicked
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (!mobileMenu.classList.contains('mobile-nav-hidden')) {
-                    toggleMenu();
-                }
-            });
-        });
-    });
+        // Optional: Close menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('mobile-nav-hidden')) {
+                    toggleMenu();
+                }
+            });
+        });
+    });
 </script>
 
 </body>
 </html>
-
-
