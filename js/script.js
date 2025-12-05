@@ -1,44 +1,63 @@
-/**
- * Script for handling responsive navigation menu toggle.
- *
- * It listens for a click on the '.menu-toggle' button and toggles the
- * 'open' class on the 'nav ul' element to show or hide the menu.
- * It also handles closing the menu when a navigation link is clicked.
- */
+// --- Mobile Menu Toggle Logic ---
 document.addEventListener('DOMContentLoaded', () => {
-    // Select the hamburger/close button and the list of navigation links
     const menuToggle = document.querySelector('.menu-toggle');
-    const navUl = document.querySelector('nav ul');
+    // Assuming 'nav ul' is the element that toggles visibility
+    const navUl = document.querySelector('nav ul'); 
 
     if (menuToggle && navUl) {
-        // 1. Handle Menu Toggle Click
         menuToggle.addEventListener('click', () => {
-            // Toggle the 'open' class on the navigation list
+            // Toggles the 'open' class for CSS to show/hide the navigation links
             navUl.classList.toggle('open');
-
-            // Change the button text/icon for better accessibility and feedback
-            if (navUl.classList.contains('open')) {
-                menuToggle.innerHTML = '✕'; // Close icon
-                menuToggle.setAttribute('aria-expanded', 'true');
-            } else {
-                menuToggle.innerHTML = '☰'; // Menu icon
-                menuToggle.setAttribute('aria-expanded', 'false');
-            }
         });
-
-        // 2. Close Menu on Link Click (for better mobile UX)
-        const navLinks = navUl.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                // Only execute if the menu is currently open
-                if (navUl.classList.contains('open')) {
-                    navUl.classList.remove('open');
-                    menuToggle.innerHTML = '☰';
-                    menuToggle.setAttribute('aria-expanded', 'false');
-                }
-            });
-        });
-    } else {
-        console.error('Mobile menu elements (.menu-toggle or nav ul) not found.');
     }
 });
+
+// --- Modal Logic ---
+
+/**
+ * Opens the member profile modal and populates it with data 
+ * from the clicked team member card.
+ * @param {HTMLImageElement} imgElement - The <img> element that was clicked.
+ */
+function openModal(imgElement) {
+    // Select the main modal elements
+    const modal = document.getElementById("memberModal");
+    const modalImg = document.getElementById("modal-img");
+    const modalName = document.getElementById("modal-name");
+    const modalRole = document.getElementById("modal-role");
+    const modalCV = document.getElementById("modal-cv");
+
+    // 1. Find the nearest parent card element that holds the data attributes
+    const teamCard = imgElement.closest('.team-card');
+
+    // 2. Retrieve data from the data-* attributes
+    const nameText = teamCard.dataset.name;
+    const roleText = teamCard.dataset.role;
+    const cvLink = teamCard.dataset.cv;
+
+    // 3. Populate and display the modal
+    modal.style.display = "flex"; // Show the modal (using flex for centering)
+    
+    // Set the image source, name, role, and CV link
+    modalImg.src = imgElement.src; 
+    modalName.innerText = nameText;
+    modalRole.innerText = roleText;
+    modalCV.setAttribute('href', cvLink);
+}
+
+/**
+ * Closes the member profile modal.
+ */
+function closeModal() {
+    const modal = document.getElementById("memberModal");
+    modal.style.display = "none";
+}
+
+// Close the modal if the user clicks anywhere on the dark background overlay
+window.onclick = function(event) {
+    const modal = document.getElementById("memberModal");
+    // Check if the clicked element is the modal overlay itself
+    if (event.target === modal) {
+        closeModal();
+    }
+}
