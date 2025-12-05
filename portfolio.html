@@ -14,6 +14,7 @@
             --bg-light: #f4f6f8;
             --text-dark: #223038;
             --text-muted: #6c7a80;
+            --link-hover: #173037;
             --hologram-blue: #8ecae6;
         }
 
@@ -244,18 +245,12 @@
 
         .team-container {
             display: grid;
-            /* MODIFICATION: Force 3 equal columns for the 3-3-1 layout on desktop */
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 60px 20px;
-            max-width: 1200px; /* Adjust max-width for better 3-col control */
+            max-width: 1400px;
             margin: 0 auto;
         }
 
-        /* MODIFICATION: Target the 7th element (the last one) and place it in the center column */
-        .team-card:nth-child(7) {
-            grid-column: 2; /* Place it in the middle column of the 3-column grid */
-        }
-        
         .team-card {
             text-align: center;
             width: 100%;
@@ -538,15 +533,9 @@
             .team-section p { font-size: 16px; margin-bottom: 30px; }
             
             .team-container { 
-                /* Override desktop grid for mobile to be single column */
                 grid-template-columns: 1fr;
                 gap: 80px 0;
             }
-            /* Ensure the last card is aligned correctly in the single column view */
-            .team-card:nth-child(7) {
-                grid-column: auto; 
-            }
-            
             .team-card { 
                 width: 100%; 
                 max-width: 300px; 
@@ -681,7 +670,7 @@
             <img src="./joshua.png" onerror="this.onerror=null; this.src='https://placehold.co/250x250/1d4a4b/ffffff?text=Joshua';" alt="Joshua A. Mendoza" onclick="openModal(this)">
             <div class="hologram-base"></div>
             <div class="card-info">
-                <h2>Joshua A. Mendoza </h2>
+                <h2>Joshua A. Mendoza</h2>
                 <h4>Content Strategist</h4>
                 <a href="#" class="cv-btn">Download CV</a>
             </div>
