@@ -4,46 +4,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Group 5 – Home</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for background and font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        :root {
+            --primary-color: #4f46e5; /* Indigo 600 */
+            --secondary-color: #374151; /* Gray 700 */
+            --bg-dark: #111827; /* Gray 900 */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: #f3f4f6; /* Gray 100 */
+        }
+
+        /* Styling for the mobile navigation to slide in */
+        .mobile-nav-hidden {
+            display: none;
+        }
+        
+        /* Custom image placeholder styling */
+        .hero-image-placeholder {
+            min-height: 300px;
+            background-color: var(--secondary-color);
+            border: 2px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #d1d5db;
+            text-align: center;
+        }
+
+    </style>
 </head>
-<body>
+<body class="min-h-screen pt-16">
 
-<header>
-    <div class="nav-container">
-        <div class="logo">Group 5</div>
-        <button class="menu-toggle">☰</button>
+<header class="fixed top-0 left-0 right-0 z-50 bg-gray-900 shadow-lg border-b border-indigo-900/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex items-center">
+                <a href="index.html" class="text-2xl font-extrabold text-indigo-400 tracking-wider">Group 5</a>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8" id="desktop-nav">
+                <a href="index.html" class="text-white hover:text-indigo-400 transition duration-300 font-medium border-b-2 border-indigo-500 pb-1" aria-current="page">Home</a>
+                <a href="about.html" class="text-gray-300 hover:text-indigo-400 transition duration-300 font-medium">About</a>
+                <a href="portfolio.html" class="text-gray-300 hover:text-indigo-400 transition duration-300 font-medium">Portfolio</a>
+                <a href="contact.html" class="text-gray-300 hover:text-indigo-400 transition duration-300 font-medium">Contact</a>
+            </nav>
 
-        <nav>
-            <ul>
-                <li><a href="index.html" aria-current="page">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-toggle" class="md:hidden text-gray-300 hover:text-white focus:outline-none p-2 rounded-lg transition duration-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
     </div>
 </header>
 
-<!--home page--> 
-<section class="hero">
-    <div class="hero-left">
-        <h1>Empower<br>Your<br>Technology</h1>
-        <p>Building Creative Innovation,<br>Creating a Revolutionary Future.</p>
-        <a href="contact.html" class="connect-btn">Connect</a>
-
+<!-- Mobile Navigation Menu (Hidden by default) -->
+<nav id="mobile-menu" class="mobile-nav-hidden fixed inset-x-0 top-16 bg-gray-800 z-40 md:hidden transition duration-300 ease-in-out">
+    <div class="px-2 pt-2 pb-3 space-y-1">
+        <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-indigo-700/50" aria-current="page">Home</a>
+        <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
+        <a href="portfolio.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Portfolio</a>
+        <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
     </div>
+</nav>
+
+<!-- Home Page Content -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-24">
+    <section class="grid lg:grid-cols-2 gap-12 items-center">
+        
+        <!-- Hero Left Content -->
+        <div class="hero-left">
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight text-white mb-6">
+                Empower<br>
+                <span class="text-indigo-400">Your</span><br>
+                Technology
+            </h1>
+            <p class="text-xl text-gray-400 mb-8">
+                Building Creative Innovation,<br>
+                Creating a Revolutionary Future.
+            </p>
+            <a href="contact.html" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-xl text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-50 transition duration-300 transform hover:scale-105">
+                Connect With Us
+            </a>
+        </div>
+        
+        <!-- Hero Right Image Placeholder -->
+        <div class="hero-right w-full">
+            <!-- Using a standard placeholder since the local 'tehnology.jpg' is unavailable -->
+            <div class="rounded-2xl shadow-2xl overflow-hidden transform hover:scale-[1.01] transition duration-500">
+                <div class="hero-image-placeholder p-6 rounded-2xl shadow-inner shadow-indigo-900/50">
+                    <span class="text-2xl font-bold">Group 5 Tech Visual Placeholder</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+<footer class="mt-20 py-8 border-t border-gray-700/50 bg-gray-900/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
+        &copy; 2025 Group 5 — All Rights Reserved. Designed with Tailwind CSS.
     </div>
-
-    <div class="hero-right">
-        <img src="tehnology.jpg" alt="">
-    </div>
-</section>
-</section>
-
-
-<footer>
-    © 2025 Group 5 — All Rights Reserved
 </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        /**
+         * Toggles the visibility of the mobile navigation menu.
+         */
+        function toggleMenu() {
+            mobileMenu.classList.toggle('mobile-nav-hidden');
+            // Accessibility improvement: toggle aria-expanded
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+        }
+
+        // Event listener to toggle the menu on button click
+        menuToggle.addEventListener('click', toggleMenu);
+
+        // Optional: Close menu when a link is clicked (in a real SPA, navigation handles this)
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('mobile-nav-hidden')) {
+                    toggleMenu();
+                }
+            });
+        });
+    });
+</script>
 
 </body>
 </html>
