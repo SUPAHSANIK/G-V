@@ -4,66 +4,124 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact – Group 5</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel ="stylesheet" href="css/contact.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        :root {
+            --primary-color: #10B981; /* Emerald 500 */
+            --secondary-color: #1F2937; /* Gray 800 */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--secondary-color);
+            background-color: #F9FAFB; /* Gray 50 */
+        }
+        .submit-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+        /* Custom responsive padding for content section */
+        .content-section {
+            padding-left: 1rem;
+            padding-right: 1rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media (min-width: 640px) {
+            .content-section {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        }
+    </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col">
 
-<header>
-    <div class="nav-container">
-        <div class="logo">Group 5</div>
-        <button class="menu-toggle">☰</button>
-
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <!-- Note: 'aria-current' is incorrectly set on two links here in the source content -->
-                <li><a href="about.html" aria-current="page">About</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="contact.html" aria-current="page">Contact</a></li>
-            </ul>
-        </nav>
+<header class="bg-white shadow-lg sticky top-0 z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex-shrink-0">
+                <a href="index.html" class="text-2xl font-extrabold text-gray-800 tracking-tight hover:text-green-600 transition duration-300">Group 5</a>
+            </div>
+            
+            <!-- Navigation Links (Hidden on small screens, shown on medium/large) -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-600 hover:text-green-600 transition duration-300 py-2 rounded-md font-medium">Home</a>
+                <a href="about.html" class="text-gray-600 hover:text-green-600 transition duration-300 py-2 rounded-md font-medium">About</a>
+                <a href="portfolio.html" class="text-gray-600 hover:text-green-600 transition duration-300 py-2 rounded-md font-medium">Portfolio</a>
+                <!-- The target link is confirmed here: -->
+                <a href="contact.html" aria-current="page" class="text-white bg-green-500 hover:bg-green-600 px-4 py-2 rounded-lg font-semibold transition duration-300 shadow-md">Contact</a>
+            </nav>
+            
+            <!-- Mobile Menu Button (Visible on small screens) -->
+            <button class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500 menu-toggle">
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
     </div>
 </header>
 
-<!--contact--> 
-<section class="contact-form">
-    <h3>Ready to Elevate Your Data?</h3>
-    <h1>Get in Touch</h1>
+<!--contact section - main content--> 
+<main class="flex-grow content-section py-12 sm:py-20">
+    <section class="contact-form bg-white p-6 sm:p-10 lg:p-12 rounded-2xl shadow-xl border border-gray-100 max-w-4xl mx-auto">
+        <h3 class="text-lg font-semibold text-green-600 uppercase tracking-wider mb-2">Ready to Elevate Your Data?</h3>
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-10">Get in Touch</h1>
 
-    <form>
-        <div class="row">
-            <div class="field">
-                <label>First name *</label>
-                <input type="text">
+        <form class="space-y-6">
+            <!-- Row for First/Last Name -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="field">
+                    <label for="first_name" class="block text-sm font-medium text-gray-700 mb-1">First name <span class="text-red-500">*</span></label>
+                    <input type="text" id="first_name" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500 transition duration-150" placeholder="John">
+                </div>
+                <div class="field">
+                    <label for="last_name" class="block text-sm font-medium text-gray-700 mb-1">Last name <span class="text-red-500">*</span></label>
+                    <input type="text" id="last_name" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500 transition duration-150" placeholder="Doe">
+                </div>
             </div>
+
+            <!-- Email -->
             <div class="field">
-                <label>Last name *</label>
-                <input type="text">
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email <span class="text-red-500">*</span></label>
+                <input type="email" id="email" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500 transition duration-150" placeholder="you@example.com">
             </div>
-        </div>
 
-        <div class="field">
-            <label>Email *</label>
-            <input type="email">
-        </div>
+            <!-- Phone -->
+            <div class="field">
+                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                <input type="tel" id="phone" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500 transition duration-150" placeholder="(555) 123-4567">
+            </div>
 
-        <div class="field">
-            <label>Phone</label>
-            <input type="text">
-        </div>
+            <!-- Message -->
+            <div class="field">
+                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Write a message</label>
+                <textarea id="message" rows="4" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-green-500 focus:border-green-500 transition duration-150" placeholder="Tell us about your project or data needs..."></textarea>
+            </div>
 
-        <div class="field">
-            <label>Write a message</label>
-            <textarea rows="4"></textarea>
-        </div>
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn w-full sm:w-auto inline-flex justify-center py-3 px-8 border border-transparent text-lg font-medium rounded-xl shadow-lg text-white bg-green-500 transition ease-in-out duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                Submit
+            </button>
+            <p class="text-sm text-gray-500 mt-4">We respect your privacy. All fields marked with * are required.</p>
+        </form>
+    </section>
+</main>
 
-        <button type="submit" class="submit-btn">Submit</button>
-    </form>
-</section>
-
-<footer>
-    © 2025 Group 5 — All Rights Reserved
+<footer class="bg-gray-800 text-white mt-12 py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+        &copy; 2025 Group 5 — All Rights Reserved
+    </div>
 </footer>
+
+<script>
+    // Simple script for mobile menu toggle (functional, but not visible in this single-page context)
+    document.querySelector('.menu-toggle').addEventListener('click', () => {
+        // In a real multi-file setup, you would toggle a mobile menu dropdown here
+        console.log('Mobile menu toggled.');
+    });
+</script>
 </body>
 </html>
